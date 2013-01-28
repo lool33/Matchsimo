@@ -7,23 +7,50 @@
 //
 
 #import "cardGameViewController.h"
+#import "playingDeck.h"
+#import "card.h"
 
 @interface cardGameViewController ()
+
+@property(nonatomic,strong) playingDeck *deck;
+
 
 @end
 
 @implementation cardGameViewController
 
-- (void)viewDidLoad
+
+
+-(playingDeck *)deck
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    if(!_deck) _deck = [[playingDeck alloc]init];
+    
+    return _deck;
+
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (IBAction)cardTouch:(UIButton *)sender {
+    
+    sender.selected = !sender.isSelected;
+    
+    if(sender.selected)
+    {
+        card *card = [self.deck drawRandomCard];
+        
+        if(card){
+            [sender setTitle:card.contents forState:UIControlStateSelected];
+            
+            [sender setImage:[UIImage imageNamed:card.imageName] forState:UIControlStateSelected];
+           
+        }
+    }
+    
+    
 }
+
+
+
 
 @end
