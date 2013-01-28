@@ -14,6 +14,7 @@
 
 @property(nonatomic,strong) playingDeck *deck;
 
+@property (weak, nonatomic) IBOutlet UILabel *numberOfTap;
 
 @end
 
