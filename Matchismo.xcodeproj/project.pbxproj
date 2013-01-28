@@ -81,6 +81,7 @@
 		7799B16A16B60E0200093567 /* spades-k-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 7799B12E16B60E0200093567 /* spades-k-75.png */; };
 		7799B16B16B60E0200093567 /* spades-q-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 7799B12F16B60E0200093567 /* spades-q-75.png */; };
 		7799B16E16B6BE5B00093567 /* playingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7799B16D16B6BE5B00093567 /* playingCard.m */; };
+		7799B17116B6C85400093567 /* playingDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 7799B17016B6C85400093567 /* playingDeck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,6 +167,8 @@
 		7799B12F16B60E0200093567 /* spades-q-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spades-q-75.png"; sourceTree = "<group>"; };
 		7799B16C16B6BE5B00093567 /* playingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = playingCard.h; path = Model/playingCard.h; sourceTree = "<group>"; };
 		7799B16D16B6BE5B00093567 /* playingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = playingCard.m; path = Model/playingCard.m; sourceTree = "<group>"; };
+		7799B16F16B6C85400093567 /* playingDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = playingDeck.h; path = Model/playingDeck.h; sourceTree = "<group>"; };
+		7799B17016B6C85400093567 /* playingDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = playingDeck.m; path = Model/playingDeck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +244,8 @@
 		7799B0EF16B6045D00093567 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7799B16F16B6C85400093567 /* playingDeck.h */,
+				7799B17016B6C85400093567 /* playingDeck.m */,
 				7799B16C16B6BE5B00093567 /* playingCard.h */,
 				7799B16D16B6BE5B00093567 /* playingCard.m */,
 				7799B0EC16B6044F00093567 /* card.h */,
@@ -451,6 +456,7 @@
 				7799B0EE16B6044F00093567 /* card.m in Sources */,
 				7799B0F216B6082900093567 /* deck.m in Sources */,
 				7799B16E16B6BE5B00093567 /* playingCard.m in Sources */,
+				7799B17116B6C85400093567 /* playingDeck.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
