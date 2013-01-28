@@ -18,6 +18,7 @@
 		7799B0E016B6032000093567 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7799B0DF16B6032000093567 /* Default-568h@2x.png */; };
 		7799B0E316B6032000093567 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7799B0E116B6032000093567 /* MainStoryboard.storyboard */; };
 		7799B0E616B6032000093567 /* cardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7799B0E516B6032000093567 /* cardGameViewController.m */; };
+		7799B0EE16B6044F00093567 /* card.m in Sources */ = {isa = PBXBuildFile; fileRef = 7799B0ED16B6044F00093567 /* card.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		7799B0E216B6032000093567 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		7799B0E416B6032000093567 /* cardGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cardGameViewController.h; sourceTree = "<group>"; };
 		7799B0E516B6032000093567 /* cardGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cardGameViewController.m; sourceTree = "<group>"; };
+		7799B0EC16B6044F00093567 /* card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = card.h; path = Model/card.h; sourceTree = "<group>"; };
+		7799B0ED16B6044F00093567 /* card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = card.m; path = Model/card.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				7799B0E116B6032000093567 /* MainStoryboard.storyboard */,
+				7799B0EF16B6045D00093567 /* Model */,
 				7799B0E416B6032000093567 /* cardGameViewController.h */,
 				7799B0E516B6032000093567 /* cardGameViewController.m */,
 				7799B0D016B6032000093567 /* Supporting Files */,
@@ -105,6 +109,15 @@
 				7799B0DF16B6032000093567 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7799B0EF16B6045D00093567 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7799B0EC16B6044F00093567 /* card.h */,
+				7799B0ED16B6044F00093567 /* card.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +190,7 @@
 				7799B0D616B6032000093567 /* main.m in Sources */,
 				7799B0DA16B6032000093567 /* cardGameAppDelegate.m in Sources */,
 				7799B0E616B6032000093567 /* cardGameViewController.m in Sources */,
+				7799B0EE16B6044F00093567 /* card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
