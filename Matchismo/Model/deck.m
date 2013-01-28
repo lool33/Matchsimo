@@ -16,13 +16,29 @@
 
 @implementation deck
 
+-(NSMutableArray *)cards
+{
+    //lazy instantiation
+    if(!_cards) _cards = [[NSMutableArray alloc]init];
+    
+    return _cards;
+    
+}
 
 
 -(void)addCard:(card *)card onTop:(BOOL)ontop
 {
     
-    
-    
+    if(card){
+        
+        if(ontop){
+            [self.cards insertObject:card atIndex:0];
+        
+        }else{
+            [self.cards addObject:card];
+            
+        }
+    }
     
 }
 
