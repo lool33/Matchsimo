@@ -15,6 +15,7 @@
 @property(nonatomic,strong) playingDeck *deck;
 
 @property (weak, nonatomic) IBOutlet UILabel *numberOfTap;
+@property(nonatomic) int TapCount;
 
 @end
 
@@ -31,6 +32,15 @@
 
 }
 
+-(void)setTapCount:(int)TapCount
+{
+    _TapCount = TapCount;
+    
+    self.numberOfTap.text = [NSString stringWithFormat:@"Card request: %d",_TapCount];
+    
+}
+
+
 
 - (IBAction)cardTouch:(UIButton *)sender {
     
@@ -44,7 +54,9 @@
             [sender setTitle:card.contents forState:UIControlStateSelected];
             
             [sender setImage:[UIImage imageNamed:card.imageName] forState:UIControlStateSelected];
-           
+            
+            self.TapCount ++;
+            
         }
     }
     
