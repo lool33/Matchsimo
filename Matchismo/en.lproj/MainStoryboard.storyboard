@@ -48,15 +48,6 @@
     <resources>
         <image name="back-red-75-1.png" width="75" height="107"/>
     </resources>
-    <classes>
-        <class className="cardGameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/cardGameViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cardTouch:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="numberOfTap" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
