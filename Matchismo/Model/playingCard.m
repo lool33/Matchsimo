@@ -10,6 +10,34 @@
 
 @implementation playingCard
 
+
+//Override the method match
+-(int)match:(NSArray *)otherCards
+{
+    
+    int score = 0;
+    
+    //to match only a single card, should be modified in homework
+    if(otherCards.count == 1)
+    {
+        playingCard *otherCard = [otherCards lastObject];
+        
+        if([otherCard.suit isEqualToString:self.suit])
+        {
+            score = 1;
+        }else if(otherCard.rank == self.rank)
+        {
+            score = 4;
+        }
+        
+    }
+    
+    
+    
+    return score;
+}
+
+
 //Class method returning the valid suits allowed
 +(NSArray *)validSuits
 {
