@@ -88,7 +88,7 @@
 {
     _TapCount = TapCount;
     
-    self.numberOfTap.text = [NSString stringWithFormat:@"Card request: %d",_TapCount];
+    self.numberOfTap.text = [NSString stringWithFormat:@"Card Touch: %d",_TapCount];
     
 }
 
