@@ -10,12 +10,13 @@
 
 @implementation playingCard
 
+//Class method returning the valid suits allowed
 +(NSArray *)validSuits
 {
     return @[@"clubs",@"diamonds",@"hearts",@"spades"];
 }
 
-
+//Class method returning the valid rank allowed in a string form
 +(NSArray *)rankStrings
 {
     
@@ -24,14 +25,14 @@
 }
 
 
-
+//Class method returing the max rank allowed
 +(NSUInteger)maxRank
 {
     return [[self rankStrings] count] - 1;
   
 }
 
-
+//Instance method returning the concatenation of the rank and the suit of the card
 -(NSString *)contents
 {
     
@@ -44,14 +45,13 @@
 //So we have to @synthesize
 
 @synthesize suit = _suit;
-
+//getter of suit securing the fact the the card has no suit defined
 -(NSString *)suit
 {
-    
     return _suit ? _suit : @"?";
-    
 }
 
+//setter securing the fact that the card to set has no correct suit
 -(void)setSuit:(NSString *)suit
 {
     if(_suit != suit)
@@ -66,6 +66,7 @@
     
 }
 
+//setter securing the rank of the card (no bad rank allowed)
 -(void)setRank:(NSUInteger)rank
 {
     
@@ -76,6 +77,7 @@
     
 }
 
+//returning the card's image file name
 -(NSString *)imageName
 {
     return [self.contents stringByAppendingString:@"-75.png"];

@@ -12,6 +12,7 @@
 @implementation playingDeck
 
 
+//Initializer of the deck that create it with a complete set of cards
 -(id)init
 {
     self = [super init];
