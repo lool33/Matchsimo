@@ -288,6 +288,8 @@
             <relationships>
                 <relationship kind="action" name="cardTouch:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="numberOfTap" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>
