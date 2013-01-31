@@ -16,6 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *numberOfTap;
 @property(nonatomic) int TapCount;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 
 @end
 
