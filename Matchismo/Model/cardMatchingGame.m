@@ -56,4 +56,19 @@
 }
 
 
+-(void)flipCardAtIndex:(NSUInteger)index
+{
+    
+    
+    
+}
+
+//We return the card for the given index after checking that the index is not out of bounds
+-(card *)cardAtIndex:(NSUInteger)index
+{
+    return (index < self.cards.count) ? self.cards[index] : nil;
+    
+}
+
+
 @end
