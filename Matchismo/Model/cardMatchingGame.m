@@ -26,7 +26,34 @@
 }
 
 
-
+//implementation of the designated initializer
+-(id)initWithCardCount:(NSUInteger)cardCount
+             usingDeck:(deck *)deck
+{
+    self = [super init];
+    //checking for correct super init
+    if(self)
+    {
+        //iteration over the number of card
+        for (int i = 0; i < cardCount; i++) {
+            //asking a random card to the deck
+            card *card = [deck drawRandomCard];
+            //check if the card exist to avoid ading nil in our array that will crash the app
+            if(!card)
+            {
+                //We return nil if we can't initialize ourself
+                self = nil;
+                
+            }else{
+                //if we have a correct card then add it to our poperty
+                self.cards[i] = card;
+            }
+        }
+        
+    }
+    
+    return self;
+}
 
 
 @end
