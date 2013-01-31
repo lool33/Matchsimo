@@ -37,6 +37,21 @@
 
 }
 
+
+-(void)setCardButtons:(NSArray *)cardButtons
+{
+    _cardButtons = cardButtons;
+    //Use a for loop to fill each button in the collection with a card
+    for (UIButton *cardButton in cardButtons) {
+        card *card = [self.deck drawRandomCard];
+        [cardButton setImage:[UIImage imageNamed:card.imageName] forState:UIControlStateSelected];
+    }
+    
+}
+
+
+
+
 //use the setter of TapCount to update the label in the UI
 -(void)setTapCount:(int)TapCount
 {
@@ -48,11 +63,12 @@
 
 
 //Action performed when a card is touch
+//This method will be modified to match new requirement
 - (IBAction)cardTouch:(UIButton *)sender {
     
     //1-Reverse the button state (selected state or unselected state)
     sender.selected = !sender.isSelected;
-    
+    /*
     //2-Draw the card figure if in state selected
     if(sender.selected)
     {
@@ -70,8 +86,8 @@
             
         }
     }
-    
-    
+    */
+     self.TapCount ++;
 }
 
 
