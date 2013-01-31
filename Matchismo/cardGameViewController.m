@@ -9,11 +9,11 @@
 #import "cardGameViewController.h"
 #import "playingDeck.h"
 #import "Card.h"
+#import "cardMatchingGame.h"
 
 @interface cardGameViewController ()
 
-//The Deck to play with
-@property(nonatomic,strong) playingDeck *deck;
+
 
 //outlet for the label on the UI
 @property (weak, nonatomic) IBOutlet UILabel *numberOfTap;
@@ -22,34 +22,65 @@
 //Collection of outlet to the cards in the UI
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 
+@property(strong,nonatomic)cardMatchingGame *game;
+
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+
 @end
 
 @implementation cardGameViewController
 
 
-//Lasy instantiation of the Deck
--(playingDeck *)deck
-{
-    
-    if(!_deck) _deck = [[playingDeck alloc]init];
-    
-    return _deck;
 
+//lazy instantiation of the game
+-(cardMatchingGame *)game
+{
+    if(!_game) _game = [[cardMatchingGame alloc]initWithCardCount:[self.cardButtons count]
+                                                        usingDeck:[[playingDeck alloc]init]];
+    return _game;
 }
+
 
 
 -(void)setCardButtons:(NSArray *)cardButtons
 {
     _cardButtons = cardButtons;
-    //Use a for loop to fill each button in the collection with a card
-    for (UIButton *cardButton in cardButtons) {
-        Card *card = [self.deck drawRandomCard];
-        [cardButton setImage:[UIImage imageNamed:card.imageName] forState:UIControlStateSelected];
-    }
-    
+    [self updateUI];
 }
 
 
+//Method used to update the UI by asking what happen to the model
+-(void)updateUI
+{
+    //iterate over the each cards in the UI and ask the model for what to display
+    for (UIButton *cardButton in self.cardButtons) {
+        //We get the card from the model
+        Card *card = [self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
+        
+        //We set the button's image to be the card in the selected state
+        [cardButton setImage:[UIImage imageNamed:card.imageName]
+                    forState:UIControlStateSelected];
+        
+        [cardButton setImage:[UIImage imageNamed:card.imageName]
+                    forState:UIControlStateSelected|UIControlStateDisabled];
+        
+        
+        
+        //We select the button if the card is faceUp
+        cardButton.selected = card.isFaceUp;
+        cardButton.enabled = !card.isUnPlayable;
+        
+        //We set the alpha to transparent if the card is unplayable and to opaque if playable
+        cardButton.alpha = card.isUnPlayable ? 0.3 : 1;
+        
+        //We update the scoreLabel with the score coming from the model
+        self.scoreLabel.text = [NSString stringWithFormat:@"Score : %d",self.game.score];
+        
+    }
+    
+
+    
+}
 
 
 //use the setter of TapCount to update the label in the UI
@@ -63,31 +94,15 @@
 
 
 //Action performed when a card is touch
-//This method will be modified to match new requirement
-- (IBAction)cardTouch:(UIButton *)sender {
-    
-    //1-Reverse the button state (selected state or unselected state)
-    sender.selected = !sender.isSelected;
-    /*
-    //2-Draw the card figure if in state selected
-    if(sender.selected)
-    {
-        //2.1-retrieve a random card from the deck
-        card *card = [self.deck drawRandomCard];
-        
-        //if we have a card
-        if(card){
-            //2.2-set the title of the button in the UI with the suit and ranl of the card (not usefull if we perform step 2.3 below)
-            [sender setTitle:card.contents forState:UIControlStateSelected];
-            //2.3-set the image of the card in the UI 
-            [sender setImage:[UIImage imageNamed:card.imageName] forState:UIControlStateSelected];
-            //2.4-Increase the TapCount property to track the number of tap
-            self.TapCount ++;
-            
-        }
-    }
-    */
+//The model is now managing that
+- (IBAction)cardTouch:(UIButton *)sender
+{
+    // We tell to the model that it need to flip a specified card in the game
+    [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
      self.TapCount ++;
+    // and then we update the UI to let the model tell us what to display
+    [self updateUI];
+    
 }
 
 

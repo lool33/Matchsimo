@@ -41,9 +41,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card request:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pua-EK-qQh">
-                                <rect key="frame" x="9" y="424" width="160" height="31"/>
+                                <rect key="frame" x="9" y="427" width="115" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -243,11 +243,19 @@
                                     <action selector="cardTouch:" destination="2" eventType="touchUpInside" id="fAp-jt-QR3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wz0-e1-loo">
+                                <rect key="frame" x="84" y="391" width="153" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="numberOfTap" destination="pua-EK-qQh" id="47g-T2-wSk"/>
+                        <outlet property="scoreLabel" destination="Wz0-e1-loo" id="A6Z-rE-U0A"/>
                         <outletCollection property="cardButtons" destination="FDu-Kt-leV" id="6iJ-DT-sp1"/>
                         <outletCollection property="cardButtons" destination="YNg-iK-Y0I" id="R48-W3-stD"/>
                         <outletCollection property="cardButtons" destination="o70-vg-oDq" id="k65-Oj-ONv"/>
@@ -268,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-123" y="45"/>
+            <point key="canvasLocation" x="-273" y="41"/>
         </scene>
     </scenes>
     <resources>
@@ -280,6 +288,7 @@
             <relationships>
                 <relationship kind="action" name="cardTouch:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="numberOfTap" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
                 <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
             </relationships>
         </class>
