@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "playingDeck.h"
+#import "card.h"
 
 @interface cardMatchingGame : NSObject
 
@@ -20,6 +21,7 @@
 
 //Return a card of the initialized game for the given index
 -(card *)cardAtIndex:(NSUInteger)index;
+
 
 //score property to store the score game which is publicly readonly
 @property(nonatomic,readonly) int score;

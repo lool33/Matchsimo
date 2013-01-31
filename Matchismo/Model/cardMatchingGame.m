@@ -18,6 +18,7 @@
 
 @implementation cardMatchingGame
 
+
 //lazy instantiation of the cards property
 -(NSMutableArray *)cards
 {
@@ -56,8 +57,34 @@
 }
 
 
+//this method is the heart of the game logic
 -(void)flipCardAtIndex:(NSUInteger)index
 {
+  
+    
+    //starting by grabbing the card we are interested in
+    card *card = [self cardAtIndex:index];
+    
+    
+
+    //check if it's playable
+    if(!card.isUnPlayable)
+    {
+        if(!card.isFaceUp)
+        {
+            //we check if turning this card faced up create a match
+            //So we check if there is other cards already returned
+        
+            
+            
+            
+            
+        }
+        //now we flip the card
+        card.faceUp = !card.isFaceUp;
+        
+    }
+    
     
     
     
