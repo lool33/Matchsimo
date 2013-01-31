@@ -249,14 +249,14 @@
 			children = (
 				77D74B7516BAA37B00A2174C /* Card.h */,
 				77D74B7616BAA37B00A2174C /* Card.m */,
-				7715DFB016B9FB32008E1DC8 /* cardMatchingGame.h */,
-				7715DFB116B9FB32008E1DC8 /* cardMatchingGame.m */,
-				7799B16F16B6C85400093567 /* playingDeck.h */,
-				7799B17016B6C85400093567 /* playingDeck.m */,
 				7799B16C16B6BE5B00093567 /* playingCard.h */,
 				7799B16D16B6BE5B00093567 /* playingCard.m */,
 				7799B0F016B6082900093567 /* deck.h */,
 				7799B0F116B6082900093567 /* deck.m */,
+				7799B16F16B6C85400093567 /* playingDeck.h */,
+				7799B17016B6C85400093567 /* playingDeck.m */,
+				7715DFB016B9FB32008E1DC8 /* cardMatchingGame.h */,
+				7715DFB116B9FB32008E1DC8 /* cardMatchingGame.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";

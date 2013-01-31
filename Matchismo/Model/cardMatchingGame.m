@@ -56,17 +56,17 @@
     return self;
 }
 
+#define FLIP_COST 1
+#define MATCH_BONUS 4
+#define MISMATCH_PENALTY 2
 
 //this method is the heart of the game logic
 -(void)flipCardAtIndex:(NSUInteger)index
 {
   
-    
     //starting by grabbing the card we are interested in
     Card *card = [self cardAtIndex:index];
     
-    
-
     //check if it's playable
     if(!card.isUnPlayable)
     {
@@ -74,19 +74,36 @@
         {
             //we check if turning this card faced up create a match
             //So we check if there is other cards already returned
-        
+            for (Card *otherCard in self.cards) {
+                if(otherCard.isFaceUp && !otherCard.isUnPlayable)
+                {
+                    //and we chack if the cards are matching in some sense
+                    int matchScore = [card match:@[otherCard]];
+                    
+                    //if there is a match, update the score and makes the card unplayable
+                    if(matchScore)
+                    {
+                        card.unPlayable = YES;
+                        otherCard.unPlayable = YES;
+                        //as Paul says, we scale the matchScore to a modifiable value
+                        self.score += matchScore * MATCH_BONUS;
+                    }else{
+                        otherCard.faceUp = NO;
+                        self.score -= MISMATCH_PENALTY;
+                        
+                    }
+                    
+                    break;
+                }
+            }
             
-            
-            //modif to try another commit
+            self.score -= FLIP_COST;
             
         }
         //now we flip the card
         card.faceUp = !card.isFaceUp;
         
     }
-    
-    
-    
     
 }
 
