@@ -5,28 +5,28 @@
 //  Created by Laurent GAIDON on 28/01/13.
 //  Copyright (c) 2013 Laurent GAIDON. All rights reserved.
 //
+//  Class that define a deck of cards
 
 #import "deck.h"
 
 @interface deck ()
-
+//need a private property to store the cards
 @property(nonatomic,strong)NSMutableArray *cards;
-
 @end
 
 @implementation deck
 
+//Getter of cards property
 -(NSMutableArray *)cards
 {
     //lazy instantiation
     if(!_cards) _cards = [[NSMutableArray alloc]init];
     
     return _cards;
-    
 }
 
 
--(void)addCard:(card *)card onTop:(BOOL)ontop
+-(void)addCard:(Card *)card onTop:(BOOL)ontop
 {
     
     if(card){
@@ -42,10 +42,10 @@
     
 }
 
--(card *)drawRandomCard
+-(Card *)drawRandomCard
 {
  
-    card *card = nil;
+    Card *card = nil;
     
     if(self.cards.count){
     

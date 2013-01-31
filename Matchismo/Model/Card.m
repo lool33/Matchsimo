@@ -6,9 +6,10 @@
 //  Copyright (c) 2013 Laurent GAIDON. All rights reserved.
 //
 
-#import "card.h"
+#import "Card.h"
 
-@implementation card
+
+@implementation Card
 
 
 //method to check if I'm (self, the instanciated card) the same
@@ -18,17 +19,18 @@
     
     int score = 0;
     
-        for (card *card in otherCards) {
-            
-            if([card.contents isEqualToString:self.contents])
-            {
-                score = 1;
-            }
-            
+    for (Card *card in otherCards) {
+        
+        if([card.contents isEqualToString:self.contents])
+        {
+            score = 1;
         }
         
-
+    }
+    
+    
     return score;
 }
+
 
 @end

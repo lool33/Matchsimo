@@ -9,11 +9,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface card : NSObject
+@interface Card : NSObject
 
 @property(nonatomic,strong)NSString *contents;
 @property(nonatomic,readonly)NSString *imageName;
 
+@property(nonatomic,getter=isFaceUp) BOOL faceUp;
+@property(nonatomic,getter=isUnPlayable) BOOL unPlayable;
 
 -(int)match:(NSArray *)otherCards;
 
