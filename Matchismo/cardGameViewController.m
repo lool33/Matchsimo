@@ -8,7 +8,7 @@
 
 #import "cardGameViewController.h"
 #import "playingDeck.h"
-#import "card.h"
+#import "Card.h"
 
 @interface cardGameViewController ()
 
@@ -43,7 +43,7 @@
     _cardButtons = cardButtons;
     //Use a for loop to fill each button in the collection with a card
     for (UIButton *cardButton in cardButtons) {
-        card *card = [self.deck drawRandomCard];
+        Card *card = [self.deck drawRandomCard];
         [cardButton setImage:[UIImage imageNamed:card.imageName] forState:UIControlStateSelected];
     }
     

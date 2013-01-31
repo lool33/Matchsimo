@@ -26,7 +26,7 @@
 }
 
 
--(void)addCard:(card *)card onTop:(BOOL)ontop
+-(void)addCard:(Card *)card onTop:(BOOL)ontop
 {
     
     if(card){
@@ -42,10 +42,10 @@
     
 }
 
--(card *)drawRandomCard
+-(Card *)drawRandomCard
 {
  
-    card *card = nil;
+    Card *card = nil;
     
     if(self.cards.count){
     

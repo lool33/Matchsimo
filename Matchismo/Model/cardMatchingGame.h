@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "playingDeck.h"
-#import "card.h"
 
 @interface cardMatchingGame : NSObject
 
@@ -20,7 +19,7 @@
 -(void)flipCardAtIndex:(NSUInteger)index;
 
 //Return a card of the initialized game for the given index
--(card *)cardAtIndex:(NSUInteger)index;
+-(Card *)cardAtIndex:(NSUInteger)index;
 
 
 //score property to store the score game which is publicly readonly

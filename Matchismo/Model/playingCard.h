@@ -8,9 +8,9 @@
 //  Define the suit and rank of the card
 //  Provide API returning the valid suits and ranks allowed
 
-#import "card.h"
+#import "Card.h"
 
-@interface playingCard : card
+@interface playingCard : Card
 
 @property(nonatomic,strong) NSString *suit;
 @property(nonatomic) NSUInteger rank;

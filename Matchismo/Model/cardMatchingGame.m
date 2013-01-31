@@ -38,7 +38,7 @@
         //iteration over the number of card
         for (int i = 0; i < cardCount; i++) {
             //asking a random card to the deck
-            card *card = [deck drawRandomCard];
+            Card *card = [deck drawRandomCard];
             //check if the card exist to avoid ading nil in our array that will crash the app
             if(!card)
             {
@@ -63,7 +63,7 @@
   
     
     //starting by grabbing the card we are interested in
-    card *card = [self cardAtIndex:index];
+    Card *card = [self cardAtIndex:index];
     
     
 
@@ -91,7 +91,7 @@
 }
 
 //We return the card for the given index after checking that the index is not out of bounds
--(card *)cardAtIndex:(NSUInteger)index
+-(Card *)cardAtIndex:(NSUInteger)index
 {
     return (index < self.cards.count) ? self.cards[index] : nil;
     

@@ -8,15 +8,15 @@
 
 
 #import <Foundation/Foundation.h>
-#import "card.h"
+#import "Card.h"
 
 @interface deck : NSObject
 
 //instance method to add cards in the deck
--(void)addCard:(card *)card onTop:(BOOL)ontop;
+-(void)addCard:(Card *)card onTop:(BOOL)ontop;
 
 //instance method to return a random card from the deck and remove it
--(card *)drawRandomCard;
+-(Card *)drawRandomCard;
 
 
 @end
