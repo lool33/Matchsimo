@@ -26,6 +26,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *historicLabel;
 @end
 
 @implementation cardGameViewController

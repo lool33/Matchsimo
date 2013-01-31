@@ -77,7 +77,7 @@
             for (Card *otherCard in self.cards) {
                 if(otherCard.isFaceUp && !otherCard.isUnPlayable)
                 {
-                    //and we chack if the cards are matching in some sense
+                    //and we check if the cards are matching in some sense
                     int matchScore = [card match:@[otherCard]];
                     
                     //if there is a match, update the score and makes the card unplayable
@@ -87,17 +87,30 @@
                         otherCard.unPlayable = YES;
                         //as Paul says, we scale the matchScore to a modifiable value
                         self.score += matchScore * MATCH_BONUS;
+                        
+                        if(matchScore == 4){
+                            //should add the description of match a rank here (with bonus)
+                            self.flipResultDescripton = [NSString stringWithFormat:@"Matched %@ & %@ for %d points",card.contents,otherCard.contents,matchScore * MATCH_BONUS];
+
+                        }else {
+                            self.flipResultDescripton = [NSString stringWithFormat:@"Matched %@ & %@ for %d points",card.contents,otherCard.contents,matchScore * MATCH_BONUS];
+                        }
+                        
+                        
                     }else{
                         otherCard.faceUp = NO;
                         self.score -= MISMATCH_PENALTY;
                         
+                         self.flipResultDescripton = [NSString stringWithFormat:@"%@ & %@ don't match! %d points penalty!",card.contents,otherCard.contents,MISMATCH_PENALTY];
                     }
                     
                     break;
                 }
+                
             }
             
             self.score -= FLIP_COST;
+            
             
         }
         //now we flip the card

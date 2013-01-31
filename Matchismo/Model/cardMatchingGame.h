@@ -25,6 +25,10 @@
 //score property to store the score game which is publicly readonly
 @property(nonatomic,readonly) int score;
 
+//flip result description
+@property(nonatomic,strong)NSString *flipResultDescripton;
+
+
 
 
 @end

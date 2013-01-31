@@ -40,8 +40,8 @@
                                     <action selector="cardTouch:" destination="2" eventType="touchUpInside" id="rSC-3L-ZgX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Touch:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pua-EK-qQh">
-                                <rect key="frame" x="84" y="425" width="140" height="27"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Touch:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pua-EK-qQh">
+                                <rect key="frame" x="184" y="391" width="116" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -243,17 +243,25 @@
                                     <action selector="cardTouch:" destination="2" eventType="touchUpInside" id="fAp-jt-QR3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wz0-e1-loo">
-                                <rect key="frame" x="84" y="391" width="153" height="34"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score : " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wz0-e1-loo">
+                                <rect key="frame" x="20" y="389" width="153" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6A9-1D-SLd">
+                                <rect key="frame" x="23" y="423" width="274" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.14549768177097447" green="0.40758529974489799" blue="0.20476400830416766" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="historicLabel" destination="6A9-1D-SLd" id="UBz-JS-B7L"/>
                         <outlet property="numberOfTap" destination="pua-EK-qQh" id="47g-T2-wSk"/>
                         <outlet property="scoreLabel" destination="Wz0-e1-loo" id="A6Z-rE-U0A"/>
                         <outletCollection property="cardButtons" destination="FDu-Kt-leV" id="6iJ-DT-sp1"/>
@@ -276,23 +284,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-273" y="41"/>
+            <point key="canvasLocation" x="-107" y="45"/>
         </scene>
     </scenes>
     <resources>
         <image name="back-red-75-1.png" width="75" height="107"/>
     </resources>
-    <classes>
-        <class className="cardGameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/cardGameViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cardTouch:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="numberOfTap" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
-                <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
