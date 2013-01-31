@@ -14,6 +14,11 @@
 @property(nonatomic,strong)NSString *contents;
 @property(nonatomic,readonly)NSString *imageName;
 
+//the getter = methodName is just to replace the name of the getter
+//it's to have a language more readable
+@property(nonatomic,getter = isFaceUp) BOOL faceUp;
+@property(nonatomic,getter = isUnPlayable) BOOL unplayable;
+
 
 -(int)match:(NSArray *)otherCards;
 

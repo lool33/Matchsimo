@@ -33,6 +33,7 @@
 }
 
 //Instance method returning the concatenation of the rank and the suit of the card
+//override the getter form the superClass
 -(NSString *)contents
 {
     
