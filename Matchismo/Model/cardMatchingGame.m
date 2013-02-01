@@ -78,11 +78,14 @@
     //starting by grabbing the card we are interested in
     Card *card = [self cardAtIndex:index];
     
+    
+    
     //check if it's playable
     if(!card.isUnPlayable)
     {
         if(!card.isFaceUp)
         {
+            BOOL multipleFlip = NO;
             //we check if turning this card faced up create a match
             //So we check if there is other cards already returned
             for (Card *otherCard in self.cards) {
@@ -96,6 +99,7 @@
                     {
                         card.unPlayable = YES;
                         otherCard.unPlayable = YES;
+                        multipleFlip = YES;
                         //as Paul says, we scale the matchScore to a modifiable value
                         self.score += matchScore * MATCH_BONUS;
                         [self.flipHistory addObject:@[@"match",card,otherCard]];
@@ -103,6 +107,7 @@
                         
                     }else{
                         otherCard.faceUp = NO;
+                        multipleFlip = YES;
                         self.score -= MISMATCH_PENALTY;
                         [self.flipHistory addObject:@[@"mismatch",card,otherCard]];
                         
@@ -111,10 +116,14 @@
                     break;
                 }
                 
+                
+            }
+            
+            if(!multipleFlip){
+                [self.flipHistory addObject:@[card]];
             }
             
             self.score -= FLIP_COST;
-            
             
         }
         
@@ -140,7 +149,7 @@
 -(NSString *)descriptionOfFlipAtIndex:(NSUInteger)index
 {
  
-    NSString *description = @"";
+    NSString *description = nil;
     
     if(index <= self.flipHistory.count){
         NSArray *playedCards = self.flipHistory[index];
@@ -148,6 +157,11 @@
         
     if(playedCards.count == 0){
         description = nil;
+        
+    }else if (playedCards.count == 1){
+    //It's a single flip
+        Card *singleCard = [playedCards lastObject];
+        description = [NSString stringWithFormat:@"Flipped up %@",singleCard.contents];
     }else {
         
         if ([playedCards[0] isEqualToString:@"mismatch"]) {
@@ -164,11 +178,11 @@
             if(firstCard.rank == secondCard.rank){
                 //it's a rank match
                 
-            description = [NSString stringWithFormat:@"Matched %@ & %@ for %d points",firstCard.contents,secondCard.contents,4 * MATCH_BONUS];
+            description = [NSString stringWithFormat:@"Matched %@ & %@ for %d points",firstCard.contents,secondCard.contents, SCORE_FOR_MATCH_RANK * MATCH_BONUS];
                 
             }else {
                 //it's a suit match
-                description = [NSString stringWithFormat:@"Matched %@ & %@ for %d points",firstCard.contents,secondCard.contents,1 * MATCH_BONUS];
+                description = [NSString stringWithFormat:@"Matched %@ & %@ for %d points",firstCard.contents,secondCard.contents,SCORE_FOR_MATCH_SUIT * MATCH_BONUS];
             }
             
         }
