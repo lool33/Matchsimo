@@ -21,7 +21,8 @@
 //Return a card of the initialized game for the given index
 -(Card *)cardAtIndex:(NSUInteger)index;
 
--(NSString *)descriptionOfLastFlip;
+//the flips are added on the stack, so index 0 is first flip description
+-(NSString *)descriptionOfFlipAtIndex:(NSUInteger)index;
 
 
 //score property to store the score game which is publicly readonly
