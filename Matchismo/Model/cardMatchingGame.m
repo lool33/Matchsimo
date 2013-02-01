@@ -85,7 +85,7 @@
     {
         if(!card.isFaceUp)
         {
-            BOOL multipleFlip = NO;
+            
             //we check if turning this card faced up create a match
             //So we check if there is other cards already returned
             for (Card *otherCard in self.cards) {
@@ -99,21 +99,13 @@
                     {
                         card.unPlayable = YES;
                         otherCard.unPlayable = YES;
-                        multipleFlip = YES;
+                      
                         //as Paul says, we scale the matchScore to a modifiable value
                         self.score += matchScore * MATCH_BONUS;
-                        [self.flipHistory insertObject:@[@"match",card.contents,otherCard.contents]
-                                               atIndex:0];
-                        
-                        
-                        
                         
                     }else{
                         otherCard.faceUp = NO;
-                        multipleFlip = YES;
                         self.score -= MISMATCH_PENALTY;
-                        [self.flipHistory insertObject:@[@"mismatch",card.contents,otherCard.contents]
-                                               atIndex:0];
                                                
                     }
                     
@@ -123,11 +115,6 @@
                 
             }
             
-            if(!multipleFlip){
-                //NSLog(@"card content before storing the object : %@",card.contents);
-                [self.flipHistory insertObject:@[card.contents] atIndex:0];
-            }
-            
             self.score -= FLIP_COST;
             
         }
@@ -135,6 +122,8 @@
         
         //now we flip the card
         card.faceUp = !card.isFaceUp;
+        //if we flip the card, then we save it to the flipHistory
+        [self.flipHistory insertObject:card.contents atIndex:0];
         
     }
     
