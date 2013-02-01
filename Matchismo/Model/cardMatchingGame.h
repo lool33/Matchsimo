@@ -21,7 +21,7 @@
 //Return a card of the initialized game for the given index
 -(Card *)cardAtIndex:(NSUInteger)index;
 
--(NSString *)descriptionOfFlipAtIndex:(NSUInteger)index;
+-(NSString *)descriptionOfLastFlip;
 
 
 //score property to store the score game which is publicly readonly

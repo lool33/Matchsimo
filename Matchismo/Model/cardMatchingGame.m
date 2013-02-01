@@ -102,15 +102,19 @@
                         multipleFlip = YES;
                         //as Paul says, we scale the matchScore to a modifiable value
                         self.score += matchScore * MATCH_BONUS;
-                        [self.flipHistory addObject:@[@"match",card,otherCard]];
+                        [self.flipHistory insertObject:@[@"match",card.contents,otherCard.contents]
+                                               atIndex:0];
+                        
+                        
                         
                         
                     }else{
                         otherCard.faceUp = NO;
                         multipleFlip = YES;
                         self.score -= MISMATCH_PENALTY;
-                        [self.flipHistory addObject:@[@"mismatch",card,otherCard]];
-                        
+                        [self.flipHistory insertObject:@[@"mismatch",card.contents,otherCard.contents]
+                                               atIndex:0];
+                                               
                     }
                     
                     break;
@@ -120,7 +124,8 @@
             }
             
             if(!multipleFlip){
-                [self.flipHistory addObject:@[card]];
+                //NSLog(@"card content before storing the object : %@",card.contents);
+                [self.flipHistory insertObject:@[card.contents] atIndex:0];
             }
             
             self.score -= FLIP_COST;
@@ -146,54 +151,84 @@
 }
 
 
--(NSString *)descriptionOfFlipAtIndex:(NSUInteger)index
+-(NSString *)descriptionOfLastFlip
 {
  
-    NSString *description = nil;
+    NSString *description = @"";
     
-    if(index <= self.flipHistory.count){
-        NSArray *playedCards = self.flipHistory[index];
+            //NSMutableArray *playedCards = [[NSMutableArray alloc]init];
+        
+        NSMutableArray *playedCards = self.flipHistory[0];
+        
+        if(playedCards){
+        
+        [playedCards addObject:self.flipHistory[0]];
 
         
-    if(playedCards.count == 0){
+    if([playedCards count] == 0){
         description = nil;
         
-    }else if (playedCards.count == 1){
+    }else if ([playedCards count] == 1){
     //It's a single flip
-        Card *singleCard = [playedCards lastObject];
-        description = [NSString stringWithFormat:@"Flipped up %@",singleCard.contents];
+        
+        
+        NSString *endsOfDesc = [NSString stringWithFormat:@"Flipped up %@",[playedCards lastObject]];
+        description = [description stringByAppendingString:endsOfDesc];
+        
     }else {
         
         if ([playedCards[0] isEqualToString:@"mismatch"]) {
             //We are in a mismatch case
-            Card *firstCard = playedCards[1];
-            Card *secondCard = playedCards[2];
-            description = [NSString stringWithFormat:@"%@ & %@ doesn't match! 2 points penalty!",firstCard.contents,secondCard.contents];
+            NSString *endsOfDesc = [NSString stringWithFormat:@"%@ & %@ doesn't match! 2 points penalty!",playedCards[1],playedCards[2]];
+            description = [description stringByAppendingString:endsOfDesc];
             
         }else {
             //We are in a case of match
-            playingCard *firstCard = playedCards[1];
-            playingCard *secondCard = playedCards[2];
-            
-            if(firstCard.rank == secondCard.rank){
-                //it's a rank match
-                
-            description = [NSString stringWithFormat:@"Matched %@ & %@ for %d points",firstCard.contents,secondCard.contents, SCORE_FOR_MATCH_RANK * MATCH_BONUS];
-                
-            }else {
+            //We need to know if we match the color or the rank
+            NSString *firstSuit = [cardMatchingGame suitForContents:playedCards[1]];
+            NSString *secondSuit = [cardMatchingGame suitForContents:playedCards[2]];
+          
+            if([firstSuit isEqualToString:secondSuit]){
                 //it's a suit match
-                description = [NSString stringWithFormat:@"Matched %@ & %@ for %d points",firstCard.contents,secondCard.contents,SCORE_FOR_MATCH_SUIT * MATCH_BONUS];
+                
+                NSString *endsOfDesc =[NSString stringWithFormat:@"Matched %@ & %@ for %d points",playedCards[1],playedCards[2],SCORE_FOR_MATCH_SUIT * MATCH_BONUS];
+                description = [description stringByAppendingString:endsOfDesc];
+                
+                
+            }else{
+                //it's a rank match
+                NSString *endsOfDesc = [NSString stringWithFormat:@"Matched %@ & %@ for %d points",playedCards[1],playedCards[2], SCORE_FOR_MATCH_RANK * MATCH_BONUS];
+                description = [description stringByAppendingString:endsOfDesc];
+                
             }
             
         }
         
         
     }
-    
-}
+    }
+
     return description;
 }
 
 
+
+//convenient class method to retrieve the suit form the content
++(NSString *)suitForContents:(NSString *)contents
+{
+    NSString *suit = [contents substringToIndex:1];
+    
+    if([suit isEqualToString:@"c"]){
+        return @"clubs";
+    }else if ([suit isEqualToString:@"d"]){
+        return @"diamonds";
+    }else if ([suit isEqualToString:@"h"]){
+        return @"hearts";
+    }else if ([suit isEqualToString:@"s"]){
+       return @"spades";
+    }
+    
+    return nil;
+}
 
 @end

@@ -53,6 +53,9 @@
 //Method used to update the UI by asking what happen to the model
 -(void)updateUI
 {
+    //delete the label's text from the previous
+    //self.historicLabel.text = @"";
+    
     //iterate over the each cards in the UI and ask the model for what to display
     for (UIButton *cardButton in self.cardButtons) {
         //We get the card from the model
@@ -79,7 +82,7 @@
         
     }
     
-    self.historicLabel.text = [self.game descriptionOfFlipAtIndex:self.TapCount];
+    self.historicLabel.text = [self.game descriptionOfLastFlip];
 
     
 }
