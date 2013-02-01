@@ -86,6 +86,10 @@
         if(!card.isFaceUp)
         {
             
+            //We create a string to store the result of the flip and then save it into the flipHistory
+            NSString *flipResult = nil;
+            
+            
             //we check if turning this card faced up create a match
             //So we check if there is other cards already returned
             for (Card *otherCard in self.cards) {
@@ -103,10 +107,17 @@
                         //as Paul says, we scale the matchScore to a modifiable value
                         self.score += matchScore * MATCH_BONUS;
                         
+                        //create the flip result string for a match (ex:@"you matched card & card for X points!")
+                        flipResult = [NSString stringWithFormat:@"You matched %@ & %@! You win %d points",card.contents,otherCard.contents,matchScore * MATCH_BONUS];
+                        
+                        
                     }else{
                         otherCard.faceUp = NO;
                         self.score -= MISMATCH_PENALTY;
-                                               
+                        
+                        //create the flip result string for a match (ex:@"card and card don't match! X point penalty")
+                        flipResult = [NSString stringWithFormat:@"%@ & %@ don't match! %d points penalty!",card.contents,otherCard.contents,MISMATCH_PENALTY];
+                        
                     }
                     
                     break;
@@ -115,20 +126,26 @@
                 
             }
             
+            //check for the flip string if it's nil it meens it a single flip
+            //so the string should look like this :@"Flipped up card!"
+            if(!flipResult){
+                
+                flipResult = [NSString stringWithFormat:@"You flipped up the %@ it cost you %d points",card.contents,FLIP_COST];
+            }
+            
             self.score -= FLIP_COST;
+            //we save the flip string to the flipHistory
+            [self.flipHistory insertObject:flipResult atIndex:0];
             
         }
         
         
         //now we flip the card
         card.faceUp = !card.isFaceUp;
-        //if we flip the card, then we save it to the flipHistory
-        [self.flipHistory insertObject:card.contents atIndex:0];
         
     }
     
 }
-
 
 
 
@@ -138,6 +155,14 @@
     return (index < self.cards.count) ? self.cards[index] : nil;
     
 }
+
+
+
+
+
+
+
+
 
 
 -(NSString *)descriptionOfLastFlip
