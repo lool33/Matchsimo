@@ -53,9 +53,7 @@
 //Method used to update the UI by asking what happen to the model
 -(void)updateUI
 {
-    //delete the label's text from the previous
-    //self.historicLabel.text = @"";
-    
+        
     //iterate over the each cards in the UI and ask the model for what to display
     for (UIButton *cardButton in self.cardButtons) {
         //We get the card from the model
@@ -104,7 +102,10 @@
 {
     // We tell to the model that it need to flip a specified card in the game
     [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
-     self.TapCount ++;
+    
+           self.TapCount ++;
+    
+    
     // and then we update the UI to let the model tell us what to display
     [self updateUI];
     
