@@ -79,7 +79,7 @@
         
     }
     
-    self.historicLabel.text = self.game.flipResultDescripton;
+    self.historicLabel.text = [self.game descriptionOfFlipAtIndex:self.TapCount];
 
     
 }
