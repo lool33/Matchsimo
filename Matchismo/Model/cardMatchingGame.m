@@ -161,12 +161,24 @@
 -(NSString *)descriptionOfFlipAtIndex:(NSUInteger)index
 {
     
-    if(index <= self.flipHistory.count){
-        
+    if(self.flipHistory.count){
+        if(index + 1 <= self.flipHistory.count){
         return self.flipHistory[index];
+        }
     }
     
     return nil;
 }
 
+
+-(NSString *)descriptionOfLastFlip
+{
+    if(self.flipHistory.count)
+    {
+        return [self.flipHistory lastObject];
+    }
+    
+    return nil;
+    
+}
 @end

@@ -24,6 +24,10 @@
 //the flips are added on the stack, so index 0 is first flip description
 -(NSString *)descriptionOfFlipAtIndex:(NSUInteger)index;
 
+//return the description of the mast flip
+-(NSString *)descriptionOfLastFlip;
+
+
 
 //score property to store the score game which is publicly readonly
 @property(nonatomic,readonly) int score;
