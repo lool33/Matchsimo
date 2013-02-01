@@ -21,11 +21,14 @@
 //Return a card of the initialized game for the given index
 -(Card *)cardAtIndex:(NSUInteger)index;
 
+-(NSString *)descriptionOfFlipAtIndex:(NSUInteger)index;
+
 
 //score property to store the score game which is publicly readonly
 @property(nonatomic,readonly) int score;
 
-//flip result description
+
+//flip result description-bad way should be deleted
 @property(nonatomic,strong)NSString *flipResultDescripton;
 
 

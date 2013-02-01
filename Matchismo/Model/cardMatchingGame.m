@@ -7,11 +7,15 @@
 //
 
 #import "cardMatchingGame.h"
+#import "playingCard.h"
 
 @interface cardMatchingGame ()
 
 @property(nonatomic,strong) NSMutableArray *cards; //of cards
 @property(nonatomic) int score; //already declared as readOnly in header. So make it read/write in our implementation
+//stack to keep the history of flip
+@property(nonatomic,strong)NSMutableArray *flipHistory; //declared privatly as read/write
+
 
 @end
 
@@ -24,6 +28,13 @@
 {
     if(!_cards) _cards = [[NSMutableArray alloc]init];
     return _cards;
+}
+
+//lazy instantiation of the historic propoerty
+-(NSMutableArray *)flipHistory
+{
+    if(!_flipHistory) _flipHistory = [[NSMutableArray alloc]init];
+    return _flipHistory;
 }
 
 
@@ -87,21 +98,14 @@
                         otherCard.unPlayable = YES;
                         //as Paul says, we scale the matchScore to a modifiable value
                         self.score += matchScore * MATCH_BONUS;
-                        
-                        if(matchScore == 4){
-                            //should add the description of match a rank here (with bonus)
-                            self.flipResultDescripton = [NSString stringWithFormat:@"Matched %@ & %@ for %d points",card.contents,otherCard.contents,matchScore * MATCH_BONUS];
-
-                        }else {
-                            self.flipResultDescripton = [NSString stringWithFormat:@"Matched %@ & %@ for %d points",card.contents,otherCard.contents,matchScore * MATCH_BONUS];
-                        }
+                        [self.flipHistory addObject:@[@"match",card,otherCard]];
                         
                         
                     }else{
                         otherCard.faceUp = NO;
                         self.score -= MISMATCH_PENALTY;
+                        [self.flipHistory addObject:@[@"mismatch",card,otherCard]];
                         
-                         self.flipResultDescripton = [NSString stringWithFormat:@"%@ & %@ don't match! %d points penalty!",card.contents,otherCard.contents,MISMATCH_PENALTY];
                     }
                     
                     break;
@@ -113,6 +117,8 @@
             
             
         }
+        
+        
         //now we flip the card
         card.faceUp = !card.isFaceUp;
         
@@ -120,12 +126,60 @@
     
 }
 
+
+
+
 //We return the card for the given index after checking that the index is not out of bounds
 -(Card *)cardAtIndex:(NSUInteger)index
 {
     return (index < self.cards.count) ? self.cards[index] : nil;
     
 }
+
+
+-(NSString *)descriptionOfFlipAtIndex:(NSUInteger)index
+{
+ 
+    NSString *description = @"";
+    
+    if(index <= self.flipHistory.count){
+        NSArray *playedCards = self.flipHistory[index];
+
+        
+    if(playedCards.count == 0){
+        description = nil;
+    }else {
+        
+        if ([playedCards[0] isEqualToString:@"mismatch"]) {
+            //We are in a mismatch case
+            Card *firstCard = playedCards[1];
+            Card *secondCard = playedCards[2];
+            description = [NSString stringWithFormat:@"%@ & %@ doesn't match! 2 points penalty!",firstCard.contents,secondCard.contents];
+            
+        }else {
+            //We are in a case of match
+            playingCard *firstCard = playedCards[1];
+            playingCard *secondCard = playedCards[2];
+            
+            if(firstCard.rank == secondCard.rank){
+                //it's a rank match
+                
+            description = [NSString stringWithFormat:@"Matched %@ & %@ for %d points",firstCard.contents,secondCard.contents,4 * MATCH_BONUS];
+                
+            }else {
+                //it's a suit match
+                description = [NSString stringWithFormat:@"Matched %@ & %@ for %d points",firstCard.contents,secondCard.contents,1 * MATCH_BONUS];
+            }
+            
+        }
+        
+        
+    }
+    
+}
+    return description;
+}
+
 
 
 @end

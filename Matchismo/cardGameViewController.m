@@ -79,6 +79,7 @@
         
     }
     
+    self.historicLabel.text = self.game.flipResultDescripton;
 
     
 }
