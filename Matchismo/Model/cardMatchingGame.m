@@ -108,7 +108,7 @@
                         self.score += matchScore * MATCH_BONUS;
                         
                         //create the flip result string for a match (ex:@"you matched card & card for X points!")
-                        flipResult = [NSString stringWithFormat:@"You matched %@ & %@! You win %d points",card.contents,otherCard.contents,matchScore * MATCH_BONUS];
+                        flipResult = [NSString stringWithFormat:@"You matched %@ AND %@! You win %d points",card.contents,otherCard.contents,matchScore * MATCH_BONUS];
                         
                         
                     }else{
@@ -116,7 +116,7 @@
                         self.score -= MISMATCH_PENALTY;
                         
                         //create the flip result string for a match (ex:@"card and card don't match! X point penalty")
-                        flipResult = [NSString stringWithFormat:@"%@ & %@ don't match! %d points penalty!",card.contents,otherCard.contents,MISMATCH_PENALTY];
+                        flipResult = [NSString stringWithFormat:@"%@ AND %@ don't match! %d points penalty!",card.contents,otherCard.contents,MISMATCH_PENALTY];
                         
                     }
                     

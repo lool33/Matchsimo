@@ -42,14 +42,14 @@
 //Class method returning the valid suits allowed
 +(NSArray *)validSuits
 {
-    return @[@"clubs",@"diamonds",@"hearts",@"spades"];
+    return @[@"♣",@"♦",@"♥",@"♠"];
 }
 
 //Class method returning the valid rank allowed in a string form
 +(NSArray *)rankStrings
 {
     
-    return @[@"?",@"a",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"j",@"q",@"k"];
+    return @[@"?",@"a",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"J",@"Q",@"K"];
     
 }
 
@@ -67,7 +67,7 @@
 {
     
     NSArray *rankStrings = [playingCard rankStrings];
-    return [NSString stringWithFormat:@"%@-%@",self.suit,rankStrings[self.rank]];
+    return [NSString stringWithFormat:@"%@ %@",rankStrings[self.rank],self.suit];
     
 }
 
@@ -110,7 +110,25 @@
 //returning the card's image file name
 -(NSString *)imageName
 {
-    return [self.contents stringByAppendingString:@"-75.png"];
+    NSArray *rankStrings = [playingCard rankStrings];
+    
+    if([self.suit isEqualToString:@"♣"]){
+        return [NSString stringWithFormat:@"clubs-%@-75.png",rankStrings[self.rank]];
+        
+    }else if([self.suit isEqualToString:@"♦"]){
+        return [NSString stringWithFormat:@"diamonds-%@-75.png",rankStrings[self.rank]];
+        
+    }else if ([self.suit isEqualToString:@"♥"]){
+        return [NSString stringWithFormat:@"hearts-%@-75.png",rankStrings[self.rank]];
+        
+    }else if ([self.suit isEqualToString:@"♠"]){
+        return [NSString stringWithFormat:@"spades-%@-75.png",rankStrings[self.rank]];
+        
+    }else{
+        return nil;
+    }
+    
+    
 }
 
 
