@@ -111,6 +111,29 @@
     
 }
 
+- (IBAction)DealNewGame:(UIButton *)sender {
+    /*when deal a new game is requested we should:
+     1-prompt the user if he is sure (optionnal)
+     2-reset all the UI Stuff (cardTouch, Score, cards...)
+     3-ask to the model a new game
+     */
+    
+    //2-Reste all the UI stuff
+    //labels reset
+    self.scoreLabel.text = @"Score:";
+    self.TapCount = 0;
+    self.numberOfTap.text = @"Card Touch:";
+    self.historicLabel.text = nil;
+
+    //3-reset the model to get a new game and reset it
+    self.game = nil;
+
+    //update the cards
+    [self updateUI];
+
+
+    
+}
 
 
 
