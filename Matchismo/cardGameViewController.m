@@ -11,7 +11,7 @@
 #import "Card.h"
 #import "cardMatchingGame.h"
 
-@interface cardGameViewController ()
+@interface cardGameViewController ()<UIAlertViewDelegate>
 
 
 
@@ -117,24 +117,43 @@
      2-reset all the UI Stuff (cardTouch, Score, cards...)
      3-ask to the model a new game
      */
-    
-    //2-Reste all the UI stuff
-    //labels reset
-    self.scoreLabel.text = @"Score:";
-    self.TapCount = 0;
-    self.numberOfTap.text = @"Card Touch:";
-    self.historicLabel.text = nil;
 
-    //3-reset the model to get a new game and reset it
-    self.game = nil;
+    //1-prompt the user
 
-    //update the cards
-    [self updateUI];
+    UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"Re-Deal"
+                                                    message:@"Are you sure to restart the game?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"No"
+                                          otherButtonTitles:@"Yes", nil];
 
+    [prompt show];
 
     
 }
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    if(buttonIndex == 0){
+        [alertView dismissWithClickedButtonIndex:0 animated:YES];
+        
+    }else{
+        //2-Reste all the UI stuff
+        //labels reset
+        self.scoreLabel.text = @"Score:";
+        self.TapCount = 0;
+        self.numberOfTap.text = @"Card Touch:";
+        self.historicLabel.text = nil;
+        
+        //3-reset the model to get a new game and reset it
+        self.game = nil;
+        
+        //update the cards
+        [self updateUI];
+        
+    }
+    
+}
 
 
 @end
