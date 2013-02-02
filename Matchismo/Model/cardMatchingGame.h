@@ -24,6 +24,8 @@
 //stack to keep the history of flip
 @property(nonatomic,strong)NSMutableArray *flipHistory; //declared privatly as read/write
 
+//Store the number of time some card flipped
+@property(nonatomic) int HistoricIndex;
 
 
 

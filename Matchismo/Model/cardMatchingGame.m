@@ -134,6 +134,7 @@
         
         //now we flip the card
         card.faceUp = !card.isFaceUp;
+        self.HistoricIndex ++;
         
     }
     
@@ -154,7 +155,7 @@
 {
     
     if(self.flipHistory.count){
-        if(index + 1 <= self.flipHistory.count){
+        if(index <= self.flipHistory.count - 1){
         return self.flipHistory[index];
         }
     }

@@ -30,11 +30,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *historicLabel;
 //Outlet to the segmented control(Needed to disabme the segmented control during a game, and initialize the game at startUp)
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
-
+//Outlet to the slider (Needed to set it's max and min proerty...
+@property (weak, nonatomic) IBOutlet UISlider *HistorySlider;
 @end
 
 @implementation cardGameViewController
-
 
 
 //lazy instantiation of the game
@@ -55,11 +55,19 @@
             
         }
         
-    }    
+    }
     
+    /*
+    //Here we should init the slider for a new game
+    //it means put it on maxValue max value to 0 and state disable
+    self.HistorySlider.maximumValue = 0;
+    self.HistorySlider.minimumValue = 0;
+    self.HistorySlider.value = self.HistorySlider.maximumValue;
+    */
     
     return _game;
 }
+
 
 
 
@@ -69,6 +77,29 @@
     [self updateUI];
 }
 
+//use the setter of TapCount to update the label in the UI
+-(void)setTapCount:(int)TapCount
+{
+    _TapCount = TapCount;
+    
+    self.numberOfTap.text = [NSString stringWithFormat:@"Card Touch: %d",_TapCount];
+    
+}
+
+#pragma mark - ViewLifcycle
+
+-(void)viewDidLoad
+{
+    
+    [super viewDidLoad];
+    self.HistorySlider.minimumValue = 0;
+    self.HistorySlider.maximumValue = 0;
+    self.HistorySlider.value = self.HistorySlider.maximumValue;
+    self.HistorySlider.enabled = NO;
+    
+}
+
+#pragma mark - UpdateUI
 
 //Method used to update the UI by asking what happen to the model
 -(void)updateUI
@@ -105,16 +136,7 @@
     
 }
 
-
-//use the setter of TapCount to update the label in the UI
--(void)setTapCount:(int)TapCount
-{
-    _TapCount = TapCount;
-    
-    self.numberOfTap.text = [NSString stringWithFormat:@"Card Touch: %d",_TapCount];
-    
-}
-
+#pragma mark - Target/Action
 
 //Action performed when a card is touch
 //The model is now managing that
@@ -131,9 +153,21 @@
     
     //disable the segmented control for the first card flip
     if(self.segmentedControl.enabled = YES) self.segmentedControl.enabled = NO;
+    //Enable the history slider after the first flip
+    self.HistorySlider.enabled = YES;
+    self.HistorySlider.maximumValue ++;
+    self.HistorySlider.value = self.HistorySlider.maximumValue;
+    self.HistorySlider.alpha = 1;
+    
+}
+
+- (IBAction)gameModeChanged:(UISegmentedControl *)sender {
+    
+    self.game = nil;
     
     
 }
+
 
 - (IBAction)DealNewGame:(UIButton *)sender {
     /*when deal a new game is requested we should:
@@ -155,6 +189,38 @@
     
 }
 
+- (IBAction)HistoryChanged:(UISlider *)sender {
+  
+    float sliderValue = sender.value;
+    
+    int intSliderValue = [[NSNumber numberWithFloat:sliderValue]intValue];
+    
+    //NSLog(@"the value of the slider is: %f and the int is: %d",sliderValue,intSliderValue);
+        
+    
+    self.historicLabel.text = [self.game descriptionOfFlipAtIndex:intSliderValue];
+    if(!self.historicLabel.text){
+        self.historicLabel.text = [self.game descriptionOfLastFlip];
+        
+    }
+    
+    //setting the slider alpha
+    if(sliderValue != self.HistorySlider.maximumValue){
+        if(sliderValue > self.HistorySlider.maximumValue / 2){
+            self.HistorySlider.alpha = 0.60;
+        }else{
+            self.HistorySlider.alpha = 0.35;
+        }
+        
+    }else{
+        self.HistorySlider.alpha = 1;
+    }
+    
+}
+
+
+#pragma mark - Delegate Methods
+
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     
@@ -172,22 +238,23 @@
         //3-reset the model to get a new game and reset it
         self.game = nil;
         
-        //update the cards
+        //4-reset the hirstory slider
+        self.HistorySlider.minimumValue = 0;
+        self.HistorySlider.maximumValue = 0;
+        self.HistorySlider.value = self.HistorySlider.maximumValue;
+        self.HistorySlider.enabled = NO;
+
+        
+        //5-update the cards
         [self updateUI];
         
-        //enable the segmented control
+        //6-enable the segmented control
         self.segmentedControl.enabled = YES;
         
     }
     
 }
 
-- (IBAction)gameModeChanged:(UISegmentedControl *)sender {
-    
-    self.game = nil;
-    
-    
-}
 
 
 @end
