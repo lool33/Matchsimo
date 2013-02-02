@@ -279,6 +279,9 @@
                                     <segment title="2 Cards"/>
                                     <segment title="3 Cards"/>
                                 </segments>
+                                <connections>
+                                    <action selector="gameModeChanged:" destination="2" eventType="valueChanged" id="9yN-qa-myS"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.14549768177097447" green="0.40758529974489799" blue="0.20476400830416766" alpha="1" colorSpace="calibratedRGB"/>
@@ -287,6 +290,7 @@
                         <outlet property="historicLabel" destination="6A9-1D-SLd" id="UBz-JS-B7L"/>
                         <outlet property="numberOfTap" destination="pua-EK-qQh" id="47g-T2-wSk"/>
                         <outlet property="scoreLabel" destination="Wz0-e1-loo" id="A6Z-rE-U0A"/>
+                        <outlet property="segmentedControl" destination="flR-Uo-Hub" id="bNw-Pi-Dqz"/>
                         <outletCollection property="cardButtons" destination="FDu-Kt-leV" id="6iJ-DT-sp1"/>
                         <outletCollection property="cardButtons" destination="YNg-iK-Y0I" id="R48-W3-stD"/>
                         <outletCollection property="cardButtons" destination="o70-vg-oDq" id="k65-Oj-ONv"/>
@@ -319,9 +323,11 @@
             <relationships>
                 <relationship kind="action" name="DealNewGame:" candidateClass="UIButton"/>
                 <relationship kind="action" name="cardTouch:" candidateClass="UIButton"/>
+                <relationship kind="action" name="gameModeChanged:" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="historicLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="numberOfTap" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="segmentedControl" candidateClass="UISegmentedControl"/>
                 <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
             </relationships>
         </class>

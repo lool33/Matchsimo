@@ -21,12 +21,15 @@
 @property(nonatomic) int TapCount;
 //Collection of outlet to the cards in the UI
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
-
+//instanciate the cardMatchingGame class
 @property(strong,nonatomic)cardMatchingGame *game;
-
+//Outlet to the ScoreLabale in the view
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-
+//property to the historicLabel in the View
 @property (weak, nonatomic) IBOutlet UILabel *historicLabel;
+//Outlet to the segmented control(Needed to disabme the segmented control during a game, and initialize the game at startUp)
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
 @end
 
 @implementation cardGameViewController
@@ -155,5 +158,12 @@
     
 }
 
+- (IBAction)gameModeChanged:(UISegmentedControl *)sender
+{
+    
+//implement this target/action to managed the change of the game mode
+    
+    
+}
 
 @end
