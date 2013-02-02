@@ -57,12 +57,13 @@
         
     }
     
+    /*
     //Here we should init the slider for a new game
     //it means put it on maxValue max value to 0 and state disable
-    self.HistorySlider.maximumValue = 1;
+    self.HistorySlider.maximumValue = 0;
     self.HistorySlider.minimumValue = 0;
     self.HistorySlider.value = self.HistorySlider.maximumValue;
-    
+    */
     
     return _game;
 }
@@ -89,11 +90,13 @@
 
 -(void)viewDidLoad
 {
+    
     [super viewDidLoad];
     self.HistorySlider.minimumValue = 0;
-    self.HistorySlider.maximumValue = 1;
+    self.HistorySlider.maximumValue = 0;
     self.HistorySlider.value = self.HistorySlider.maximumValue;
     self.HistorySlider.enabled = NO;
+    
 }
 
 #pragma mark - UpdateUI
@@ -152,7 +155,9 @@
     if(self.segmentedControl.enabled = YES) self.segmentedControl.enabled = NO;
     //Enable the history slider after the first flip
     self.HistorySlider.enabled = YES;
-    
+    self.HistorySlider.maximumValue ++;
+    self.HistorySlider.value = self.HistorySlider.maximumValue;
+    self.HistorySlider.alpha = 1;
     
 }
 
@@ -185,10 +190,23 @@
 }
 
 - (IBAction)HistoryChanged:(UISlider *)sender {
+  
+    float sliderValue = sender.value;
     
-    //First of all, we to change the alpha if the slider is not on a max value
-    if(self.HistorySlider.value != self.HistorySlider.maximumValue){
-        if(self.HistorySlider.value > self.HistorySlider.maximumValue / 2){
+    int intSliderValue = [[NSNumber numberWithFloat:sliderValue]intValue];
+    
+    //NSLog(@"the value of the slider is: %f and the int is: %d",sliderValue,intSliderValue);
+        
+    
+    self.historicLabel.text = [self.game descriptionOfFlipAtIndex:intSliderValue];
+    if(!self.historicLabel.text){
+        self.historicLabel.text = [self.game descriptionOfLastFlip];
+        
+    }
+    
+    //setting the slider alpha
+    if(sliderValue != self.HistorySlider.maximumValue){
+        if(sliderValue > self.HistorySlider.maximumValue / 2){
             self.HistorySlider.alpha = 0.60;
         }else{
             self.HistorySlider.alpha = 0.35;
@@ -196,15 +214,7 @@
         
     }else{
         self.HistorySlider.alpha = 1;
-        //When the maximum value of the slider is reach, set the flip label to the current lastFlip
-        self.historicLabel.text = [self.game descriptionOfLastFlip];
-        
     }
-    
-    //here we should modify the value of the flipLabel accordingly to the history coming from the label
-    
-    
-    
     
 }
 
@@ -228,10 +238,17 @@
         //3-reset the model to get a new game and reset it
         self.game = nil;
         
-        //update the cards
+        //4-reset the hirstory slider
+        self.HistorySlider.minimumValue = 0;
+        self.HistorySlider.maximumValue = 0;
+        self.HistorySlider.value = self.HistorySlider.maximumValue;
+        self.HistorySlider.enabled = NO;
+
+        
+        //5-update the cards
         [self updateUI];
         
-        //enable the segmented control
+        //6-enable the segmented control
         self.segmentedControl.enabled = YES;
         
     }
