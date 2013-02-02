@@ -280,7 +280,7 @@
                                     <segment title="3 Cards"/>
                                 </segments>
                                 <connections>
-                                    <action selector="gameModeChanged:" destination="2" eventType="valueChanged" id="9yN-qa-myS"/>
+                                    <action selector="gameModeChanged:" destination="2" eventType="valueChanged" id="RTP-dJ-sor"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -311,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-956" y="60"/>
+            <point key="canvasLocation" x="-1031" y="60"/>
         </scene>
     </scenes>
     <resources>
@@ -323,7 +323,6 @@
             <relationships>
                 <relationship kind="action" name="DealNewGame:" candidateClass="UIButton"/>
                 <relationship kind="action" name="cardTouch:" candidateClass="UIButton"/>
-                <relationship kind="action" name="gameModeChanged:" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="historicLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="numberOfTap" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>

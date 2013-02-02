@@ -46,9 +46,7 @@
         }else if (firstCard.rank == secondCard.rank){
             //the first 2 cards match in rank
             if(self.rank == firstCard.rank){
-            
                 score = 10;
-                
             }
             
         }

@@ -10,6 +10,7 @@
 #import "playingDeck.h"
 #import "Card.h"
 #import "cardMatchingGame.h"
+#import "cardMatchingGame3Cards.h"
 
 @interface cardGameViewController ()<UIAlertViewDelegate>
 
@@ -39,8 +40,24 @@
 //lazy instantiation of the game
 -(cardMatchingGame *)game
 {
-    if(!_game) _game = [[cardMatchingGame alloc]initWithCardCount:[self.cardButtons count]
-                                                        usingDeck:[[playingDeck alloc]init]];
+    
+    if(!_game){
+        
+        if(self.segmentedControl.selectedSegmentIndex == 0){
+            
+            _game = [[cardMatchingGame alloc]initWithCardCount:[self.cardButtons count]
+                                                     usingDeck:[[playingDeck alloc]init]];
+            
+        }else{
+            
+            _game = [[cardMatchingGame3Cards alloc]initWithCardCount:[self.cardButtons count]
+                                                           usingDeck:[[playingDeck alloc]init]];
+            
+        }
+        
+    }    
+    
+    
     return _game;
 }
 
@@ -112,6 +129,10 @@
     // and then we update the UI to let the model tell us what to display
     [self updateUI];
     
+    //disable the segmented control for the first card flip
+    if(self.segmentedControl.enabled = YES) self.segmentedControl.enabled = NO;
+    
+    
 }
 
 - (IBAction)DealNewGame:(UIButton *)sender {
@@ -154,16 +175,19 @@
         //update the cards
         [self updateUI];
         
+        //enable the segmented control
+        self.segmentedControl.enabled = YES;
+        
     }
     
 }
 
-- (IBAction)gameModeChanged:(UISegmentedControl *)sender
-{
+- (IBAction)gameModeChanged:(UISegmentedControl *)sender {
     
-//implement this target/action to managed the change of the game mode
+    self.game = nil;
     
     
 }
+
 
 @end
