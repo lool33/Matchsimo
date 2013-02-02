@@ -9,7 +9,23 @@
 #import <Foundation/Foundation.h>
 #import "playingDeck.h"
 
+#define FLIP_COST 1
+#define MATCH_BONUS 4
+#define MATCH_BONUS_3_CARDS 5
+#define MISMATCH_PENALTY 2
+
+
 @interface cardMatchingGame : NSObject
+
+//popertys originaly private but made public to subclass
+
+@property(nonatomic,strong) NSMutableArray *cards; //of cards
+@property(nonatomic) int score; //already declared as readOnly in header. So make it read/write in our implementation
+//stack to keep the history of flip
+@property(nonatomic,strong)NSMutableArray *flipHistory; //declared privatly as read/write
+
+
+
 
 //Designated initializer for the game
 -(id)initWithCardCount:(NSUInteger)cardCount
@@ -26,17 +42,6 @@
 
 //return the description of the mast flip
 -(NSString *)descriptionOfLastFlip;
-
-
-
-//score property to store the score game which is publicly readonly
-@property(nonatomic,readonly) int score;
-
-
-//flip result description-bad way should be deleted
-@property(nonatomic,strong)NSString *flipResultDescripton;
-
-
 
 
 @end

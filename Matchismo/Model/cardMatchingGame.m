@@ -11,12 +11,6 @@
 
 @interface cardMatchingGame ()
 
-@property(nonatomic,strong) NSMutableArray *cards; //of cards
-@property(nonatomic) int score; //already declared as readOnly in header. So make it read/write in our implementation
-//stack to keep the history of flip
-@property(nonatomic,strong)NSMutableArray *flipHistory; //declared privatly as read/write
-
-
 @end
 
 
@@ -67,9 +61,7 @@
     return self;
 }
 
-#define FLIP_COST 1
-#define MATCH_BONUS 4
-#define MISMATCH_PENALTY 2
+
 
 //this method is the heart of the game logic
 -(void)flipCardAtIndex:(NSUInteger)index
