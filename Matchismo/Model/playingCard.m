@@ -8,6 +8,7 @@
 
 #import "playingCard.h"
 
+
 @implementation playingCard
 
 
@@ -30,9 +31,27 @@
             score = 4;
         }
         
+    }else if(otherCards.count == 2){
+     
+        playingCard *firstCard = otherCards[0];
+        playingCard *secondCard = otherCards[1];
+        
+        //check to see if there is a suit match between the 3 cards
+        if([firstCard.suit isEqualToString:secondCard.suit]){
+            //the first 2 cards match in suit
+            if([self.suit isEqualToString:firstCard.suit]){
+                //it means the 3 cards match in suit
+                score = 5;
+            }
+        }else if (firstCard.rank == secondCard.rank){
+            //the first 2 cards match in rank
+            if(self.rank == firstCard.rank){
+                score = 10;
+            }
+            
+        }
+        
     }
-    
-    
     
     return score;
 }
@@ -41,14 +60,14 @@
 //Class method returning the valid suits allowed
 +(NSArray *)validSuits
 {
-    return @[@"clubs",@"diamonds",@"hearts",@"spades"];
+    return @[@"♣",@"♦",@"♥",@"♠"];
 }
 
 //Class method returning the valid rank allowed in a string form
 +(NSArray *)rankStrings
 {
     
-    return @[@"?",@"a",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"j",@"q",@"k"];
+    return @[@"?",@"a",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"J",@"Q",@"K"];
     
 }
 
@@ -66,7 +85,7 @@
 {
     
     NSArray *rankStrings = [playingCard rankStrings];
-    return [NSString stringWithFormat:@"%@-%@",self.suit,rankStrings[self.rank]];
+    return [NSString stringWithFormat:@"%@ %@",rankStrings[self.rank],self.suit];
     
 }
 
@@ -109,7 +128,25 @@
 //returning the card's image file name
 -(NSString *)imageName
 {
-    return [self.contents stringByAppendingString:@"-75.png"];
+    NSArray *rankStrings = [playingCard rankStrings];
+    
+    if([self.suit isEqualToString:@"♣"]){
+        return [NSString stringWithFormat:@"clubs-%@-75.png",rankStrings[self.rank]];
+        
+    }else if([self.suit isEqualToString:@"♦"]){
+        return [NSString stringWithFormat:@"diamonds-%@-75.png",rankStrings[self.rank]];
+        
+    }else if ([self.suit isEqualToString:@"♥"]){
+        return [NSString stringWithFormat:@"hearts-%@-75.png",rankStrings[self.rank]];
+        
+    }else if ([self.suit isEqualToString:@"♠"]){
+        return [NSString stringWithFormat:@"spades-%@-75.png",rankStrings[self.rank]];
+        
+    }else{
+        return nil;
+    }
+    
+    
 }
 
 

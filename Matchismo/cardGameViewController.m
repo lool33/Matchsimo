@@ -10,8 +10,9 @@
 #import "playingDeck.h"
 #import "Card.h"
 #import "cardMatchingGame.h"
+#import "cardMatchingGame3Cards.h"
 
-@interface cardGameViewController ()
+@interface cardGameViewController ()<UIAlertViewDelegate>
 
 
 
@@ -21,10 +22,14 @@
 @property(nonatomic) int TapCount;
 //Collection of outlet to the cards in the UI
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
-
+//instanciate the cardMatchingGame class
 @property(strong,nonatomic)cardMatchingGame *game;
-
+//Outlet to the ScoreLabale in the view
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+//property to the historicLabel in the View
+@property (weak, nonatomic) IBOutlet UILabel *historicLabel;
+//Outlet to the segmented control(Needed to disabme the segmented control during a game, and initialize the game at startUp)
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 @end
 
@@ -35,8 +40,24 @@
 //lazy instantiation of the game
 -(cardMatchingGame *)game
 {
-    if(!_game) _game = [[cardMatchingGame alloc]initWithCardCount:[self.cardButtons count]
-                                                        usingDeck:[[playingDeck alloc]init]];
+    
+    if(!_game){
+        
+        if(self.segmentedControl.selectedSegmentIndex == 0){
+            
+            _game = [[cardMatchingGame alloc]initWithCardCount:[self.cardButtons count]
+                                                     usingDeck:[[playingDeck alloc]init]];
+            
+        }else{
+            
+            _game = [[cardMatchingGame3Cards alloc]initWithCardCount:[self.cardButtons count]
+                                                           usingDeck:[[playingDeck alloc]init]];
+            
+        }
+        
+    }    
+    
+    
     return _game;
 }
 
@@ -52,6 +73,7 @@
 //Method used to update the UI by asking what happen to the model
 -(void)updateUI
 {
+        
     //iterate over the each cards in the UI and ask the model for what to display
     for (UIButton *cardButton in self.cardButtons) {
         //We get the card from the model
@@ -78,6 +100,7 @@
         
     }
     
+    self.historicLabel.text = [self.game descriptionOfLastFlip];
 
     
 }
@@ -99,13 +122,72 @@
 {
     // We tell to the model that it need to flip a specified card in the game
     [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
-     self.TapCount ++;
+    
+           self.TapCount ++;
+    
+    
     // and then we update the UI to let the model tell us what to display
     [self updateUI];
     
+    //disable the segmented control for the first card flip
+    if(self.segmentedControl.enabled = YES) self.segmentedControl.enabled = NO;
+    
+    
 }
 
+- (IBAction)DealNewGame:(UIButton *)sender {
+    /*when deal a new game is requested we should:
+     1-prompt the user if he is sure (optionnal)
+     2-reset all the UI Stuff (cardTouch, Score, cards...)
+     3-ask to the model a new game
+     */
 
+    //1-prompt the user
+
+    UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"Re-Deal"
+                                                    message:@"Are you sure to restart the game?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"No"
+                                          otherButtonTitles:@"Yes", nil];
+
+    [prompt show];
+
+    
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    if(buttonIndex == 0){
+        [alertView dismissWithClickedButtonIndex:0 animated:YES];
+        
+    }else{
+        //2-Reste all the UI stuff
+        //labels reset
+        self.scoreLabel.text = @"Score:";
+        self.TapCount = 0;
+        self.numberOfTap.text = @"Card Touch:";
+        self.historicLabel.text = nil;
+        
+        //3-reset the model to get a new game and reset it
+        self.game = nil;
+        
+        //update the cards
+        [self updateUI];
+        
+        //enable the segmented control
+        self.segmentedControl.enabled = YES;
+        
+    }
+    
+}
+
+- (IBAction)gameModeChanged:(UISegmentedControl *)sender {
+    
+    self.game = nil;
+    
+    
+}
 
 
 @end

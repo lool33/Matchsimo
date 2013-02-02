@@ -10,6 +10,10 @@
 
 #import "Card.h"
 
+#define SCORE_FOR_MATCH_RANK 4
+#define SCORE_FOR_MATCH_SUIT 1
+
+
 @interface playingCard : Card
 
 @property(nonatomic,strong) NSString *suit;
