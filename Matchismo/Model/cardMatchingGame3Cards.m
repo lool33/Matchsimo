@@ -100,14 +100,27 @@
                         
                     }
                     
-                
                 }
-                
                 
             }
 
+            
+            //We didn't find any match or mismatch so it's the first flip
+            if(!flipResult){
+                
+                flipResult = [NSString stringWithFormat:@"You flipped up the %@ it cost you %d points",card.contents,FLIP_COST];
+            }
+            
+            self.score -= FLIP_COST;
+            //we save the flip string to the flipHistory
+            [self.flipHistory addObject:flipResult];
+            
         }
-    
+        
+        //now we flip the card
+        card.faceUp = !card.isFaceUp;
+        
+    }
 }
 
 
