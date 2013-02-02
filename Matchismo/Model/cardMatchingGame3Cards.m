@@ -37,13 +37,9 @@
             for (Card *otherCard in self.cards) {
                 if(otherCard.isFaceUp && !otherCard.isUnPlayable)
                 {
-                    
                     [otherCardFacedUp addObject:otherCard];
-                    
                 }
             }
-            
-            
             
             //check for the number of cards returned and perform specific computing for each case
             
@@ -119,6 +115,7 @@
         
         //now we flip the card
         card.faceUp = !card.isFaceUp;
+        self.HistoricIndex ++;
         
     }
 }
