@@ -286,6 +286,9 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="qQP-vb-ZJl">
                                 <rect key="frame" x="26" y="387" width="268" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="HistoryChanged:" destination="2" eventType="valueChanged" id="qhf-W8-SY6"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flip History - Slide to rewind" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="phz-Vf-mIL">
                                 <rect key="frame" x="28" y="365" width="264" height="21"/>
@@ -298,6 +301,7 @@
                         <color key="backgroundColor" red="0.14549768177097447" green="0.40758529974489799" blue="0.20476400830416766" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="HistorySlider" destination="qQP-vb-ZJl" id="xEB-Yy-WuX"/>
                         <outlet property="historicLabel" destination="6A9-1D-SLd" id="UBz-JS-B7L"/>
                         <outlet property="numberOfTap" destination="pua-EK-qQh" id="47g-T2-wSk"/>
                         <outlet property="scoreLabel" destination="Wz0-e1-loo" id="A6Z-rE-U0A"/>
@@ -322,7 +326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1031" y="60"/>
+            <point key="canvasLocation" x="-1376" y="30"/>
         </scene>
     </scenes>
     <resources>
@@ -332,6 +336,10 @@
         <class className="cardGameViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/cardGameViewController.h"/>
             <relationships>
+                <relationship kind="action" name="DealNewGame:" candidateClass="UIButton"/>
+                <relationship kind="action" name="cardTouch:" candidateClass="UIButton"/>
+                <relationship kind="action" name="gameModeChanged:" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="HistorySlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="historicLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="numberOfTap" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>

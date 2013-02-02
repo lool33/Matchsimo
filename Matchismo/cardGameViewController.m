@@ -30,11 +30,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *historicLabel;
 //Outlet to the segmented control(Needed to disabme the segmented control during a game, and initialize the game at startUp)
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
-
+//Outlet to the slider (Needed to set it's max and min proerty...
+@property (weak, nonatomic) IBOutlet UISlider *HistorySlider;
 @end
 
 @implementation cardGameViewController
-
 
 
 //lazy instantiation of the game
@@ -55,11 +55,18 @@
             
         }
         
-    }    
+    }
+    
+    //Here we should init the slider for a new game
+    //it means put it on maxValue max value to 0 and state disable
+    self.HistorySlider.maximumValue = 1;
+    self.HistorySlider.minimumValue = 0;
+    self.HistorySlider.value = self.HistorySlider.maximumValue;
     
     
     return _game;
 }
+
 
 
 
@@ -69,6 +76,27 @@
     [self updateUI];
 }
 
+//use the setter of TapCount to update the label in the UI
+-(void)setTapCount:(int)TapCount
+{
+    _TapCount = TapCount;
+    
+    self.numberOfTap.text = [NSString stringWithFormat:@"Card Touch: %d",_TapCount];
+    
+}
+
+#pragma mark - ViewLifcycle
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.HistorySlider.minimumValue = 0;
+    self.HistorySlider.maximumValue = 1;
+    self.HistorySlider.value = self.HistorySlider.maximumValue;
+    self.HistorySlider.enabled = NO;
+}
+
+#pragma mark - UpdateUI
 
 //Method used to update the UI by asking what happen to the model
 -(void)updateUI
@@ -105,16 +133,7 @@
     
 }
 
-
-//use the setter of TapCount to update the label in the UI
--(void)setTapCount:(int)TapCount
-{
-    _TapCount = TapCount;
-    
-    self.numberOfTap.text = [NSString stringWithFormat:@"Card Touch: %d",_TapCount];
-    
-}
-
+#pragma mark - Target/Action
 
 //Action performed when a card is touch
 //The model is now managing that
@@ -131,9 +150,19 @@
     
     //disable the segmented control for the first card flip
     if(self.segmentedControl.enabled = YES) self.segmentedControl.enabled = NO;
+    //Enable the history slider after the first flip
+    self.HistorySlider.enabled = YES;
     
     
 }
+
+- (IBAction)gameModeChanged:(UISegmentedControl *)sender {
+    
+    self.game = nil;
+    
+    
+}
+
 
 - (IBAction)DealNewGame:(UIButton *)sender {
     /*when deal a new game is requested we should:
@@ -154,6 +183,33 @@
 
     
 }
+
+- (IBAction)HistoryChanged:(UISlider *)sender {
+    
+    //First of all, we to change the alpha if the slider is not on a max value
+    if(self.HistorySlider.value != self.HistorySlider.maximumValue){
+        if(self.HistorySlider.value > self.HistorySlider.maximumValue / 2){
+            self.HistorySlider.alpha = 0.60;
+        }else{
+            self.HistorySlider.alpha = 0.35;
+        }
+        
+    }else{
+        self.HistorySlider.alpha = 1;
+        //When the maximum value of the slider is reach, set the flip label to the current lastFlip
+        self.historicLabel.text = [self.game descriptionOfLastFlip];
+        
+    }
+    
+    //here we should modify the value of the flipLabel accordingly to the history coming from the label
+    
+    
+    
+    
+}
+
+
+#pragma mark - Delegate Methods
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -182,12 +238,6 @@
     
 }
 
-- (IBAction)gameModeChanged:(UISegmentedControl *)sender {
-    
-    self.game = nil;
-    
-    
-}
 
 
 @end
