@@ -31,9 +31,29 @@
             score = 4;
         }
         
+    }else if(otherCards.count == 2){
+     
+        playingCard *firstCard = otherCards[0];
+        playingCard *secondCard = otherCards[1];
+        
+        //check to see if there is a suit match between the 3 cards
+        if([firstCard.suit isEqualToString:secondCard.suit]){
+            //the first 2 cards match in suit
+            if([self.suit isEqualToString:firstCard.suit]){
+                //it means the 3 cards match in suit
+                score = 5;
+            }
+        }else if (firstCard.rank == secondCard.rank){
+            //the first 2 cards match in rank
+            if(self.rank == firstCard.rank){
+            
+                score = 10;
+                
+            }
+            
+        }
+        
     }
-    
-    
     
     return score;
 }
