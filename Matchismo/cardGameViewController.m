@@ -57,15 +57,7 @@
         
     }
     
-    /*
-    //Here we should init the slider for a new game
-    //it means put it on maxValue max value to 0 and state disable
-    self.HistorySlider.maximumValue = 0;
-    self.HistorySlider.minimumValue = 0;
-    self.HistorySlider.value = self.HistorySlider.maximumValue;
-    */
-    
-    return _game;
+       return _game;
 }
 
 
@@ -119,7 +111,19 @@
         
         
         
-        //We select the button if the card is faceUp
+        
+        //Here we animate the selected button only for the flip
+        if(cardButton.selected != card.isFaceUp){
+            
+            [UIView beginAnimations:@"flipbutton" context:NULL];
+            [UIView setAnimationDuration:0.2];
+            [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:cardButton cache:YES];
+            [UIView commitAnimations];
+            
+        }
+        
+        
+        //We make the button selected if the card is faceUp
         cardButton.selected = card.isFaceUp;
         cardButton.enabled = !card.isUnPlayable;
         
@@ -168,35 +172,14 @@
     
 }
 
-
-- (IBAction)DealNewGame:(UIButton *)sender {
-    /*when deal a new game is requested we should:
-     1-prompt the user if he is sure (optionnal)
-     2-reset all the UI Stuff (cardTouch, Score, cards...)
-     3-ask to the model a new game
-     */
-
-    //1-prompt the user
-
-    UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"Re-Deal"
-                                                    message:@"Are you sure to restart the game?"
-                                                   delegate:self
-                                          cancelButtonTitle:@"No"
-                                          otherButtonTitles:@"Yes", nil];
-
-    [prompt show];
-
-    
-}
-
 - (IBAction)HistoryChanged:(UISlider *)sender {
-  
+    
     float sliderValue = sender.value;
     
     int intSliderValue = [[NSNumber numberWithFloat:sliderValue]intValue];
     
     //NSLog(@"the value of the slider is: %f and the int is: %d",sliderValue,intSliderValue);
-        
+    
     
     self.historicLabel.text = [self.game descriptionOfFlipAtIndex:intSliderValue];
     if(!self.historicLabel.text){
@@ -219,6 +202,28 @@
 }
 
 
+- (IBAction)DealNewGame:(UIButton *)sender {
+    /*when deal a new game is requested we should:
+     1-prompt the user if he is sure (optionnal)
+     2-reset all the UI Stuff (cardTouch, Score, cards...)
+     3-ask to the model a new game
+     */
+
+    //1-prompt the user
+
+    UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"Re-Deal"
+                                                    message:@"Are you sure to restart the game?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"No"
+                                          otherButtonTitles:@"Yes", nil];
+
+    [prompt show];
+
+    
+}
+
+
+
 #pragma mark - Delegate Methods
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -238,7 +243,7 @@
         //3-reset the model to get a new game and reset it
         self.game = nil;
         
-        //4-reset the hirstory slider
+        //4-reset the history slider
         self.HistorySlider.minimumValue = 0;
         self.HistorySlider.maximumValue = 0;
         self.HistorySlider.value = self.HistorySlider.maximumValue;
