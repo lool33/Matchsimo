@@ -136,6 +136,19 @@
     }
     
     self.historicLabel.text = [self.game descriptionOfLastFlip];
+    
+    //check if the game is over
+    if([self.game gameIsOver]){
+        //game is over
+        UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"You Finished the Game!!!"
+                                                        message:@"Do you want to restart a new one?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"No"
+                                              otherButtonTitles:@"Yes", nil];
+        
+        [prompt show];
+
+    }
 
     
 }
@@ -228,6 +241,7 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    
     
     if(buttonIndex == 0){
         [alertView dismissWithClickedButtonIndex:0 animated:YES];
