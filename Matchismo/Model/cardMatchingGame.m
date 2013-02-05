@@ -8,6 +8,7 @@
 
 #import "cardMatchingGame.h"
 #import "playingCard.h"
+#import "cardMatchingGame3Cards.h"
 
 @interface cardMatchingGame ()
 
@@ -185,24 +186,24 @@
             for (Card *card2 in self.cards) {
                 if(!card2.isUnPlayable && !(card1 == card2)) //continue only if card2 is also playable and if it's not equal to card1
                 {
-                    if([self isKindOfClass:[cardMatchingGame class]]){
+                    if([self isKindOfClass:[cardMatchingGame3Cards class]]){
+                        //here we are in a 3 cards matching game
+                        
+                        for (Card *card3 in self.cards) {
+                            if(!card3.isUnPlayable && !(card3 == card2) && !(card3 == card1)) //the thirs card is playable and is not equal to the first two ones
+                            {
+                                
+                                if([card3 match:@[card1,card2]]) gameOver = NO;
+                                
+                            }
+                        }
+    
+                    }else{
                         //Here we are in a 2 cards matching game
                         //Now check if the two cards are matchable
                         //and adjust gameOver accordingly
                         if([card1 match:@[card2]]) gameOver = NO;
-                        
-                        
-                    }else{
-                        //here we are in a 3 cards matching game
-                       
-                            for (Card *card3 in self.cards) {
-                                if(!card3.isUnPlayable && !(card3 == card2) && !(card3 == card1)) //the thirs card is playable and is not equal to the first two ones
-                                {
-                                    
-                                    if([card3 match:@[card1,card2]]) gameOver = NO;
-                                    
-                                }
-                            }
+
                     }
                     
                 }

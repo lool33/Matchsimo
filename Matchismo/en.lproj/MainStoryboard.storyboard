@@ -272,8 +272,8 @@
                                     <action selector="DealNewGame:" destination="2" eventType="touchUpInside" id="FpV-ja-jgM"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="flR-Uo-Hub">
-                                <rect key="frame" x="104" y="6" width="196" height="44"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="flR-Uo-Hub">
+                                <rect key="frame" x="104" y="13" width="196" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="2 Cards"/>
@@ -326,12 +326,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1376" y="30"/>
+            <point key="canvasLocation" x="-1649" y="-13"/>
         </scene>
     </scenes>
     <resources>
         <image name="back-red-75-1.png" width="75" height="107"/>
     </resources>
+    <classes>
+        <class className="cardGameViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/cardGameViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="DealNewGame:" candidateClass="UIButton"/>
+                <relationship kind="action" name="HistoryChanged:" candidateClass="UISlider"/>
+                <relationship kind="action" name="cardTouch:" candidateClass="UIButton"/>
+                <relationship kind="action" name="gameModeChanged:" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="HistorySlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="historicLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numberOfTap" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="segmentedControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
