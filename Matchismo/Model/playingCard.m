@@ -18,7 +18,7 @@
     
     int score = 0;
     
-    //to match only a single card, should be modified in homework
+    //to match two cards
     if(otherCards.count == 1)
     {
         playingCard *otherCard = [otherCards lastObject];
@@ -31,6 +31,7 @@
             score = 4;
         }
         
+        //To match 3 cards
     }else if(otherCards.count == 2){
      
         playingCard *firstCard = otherCards[0];

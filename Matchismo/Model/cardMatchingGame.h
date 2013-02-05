@@ -45,5 +45,8 @@
 //return the description of the mast flip
 -(NSString *)descriptionOfLastFlip;
 
+-(BOOL)gameIsOver;
+
+
 
 @end
