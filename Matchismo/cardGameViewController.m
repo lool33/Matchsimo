@@ -78,6 +78,20 @@
     
 }
 
+-(void)displayAnAlertYesNoWithTitle:(NSString *)title andMessage:(NSString *)message
+{
+    
+    UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:title
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"No"
+                                          otherButtonTitles:@"Yes", nil];
+    
+    [prompt show];
+    
+    
+}
+
 #pragma mark - ViewLifcycle
 
 -(void)viewDidLoad
@@ -138,16 +152,10 @@
     self.historicLabel.text = [self.game descriptionOfLastFlip];
     
     //check if the game is over
-    if([self.game gameIsOver]){
+    if([self.game gameIsOver])
+    {
         //game is over
-        UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"You Finished the Game!!!"
-                                                        message:@"Do you want to restart a new one?"
-                                                       delegate:self
-                                              cancelButtonTitle:@"No"
-                                              otherButtonTitles:@"Yes", nil];
-        
-        [prompt show];
-
+        [self displayAnAlertYesNoWithTitle:@"You Finished the Game!!!" andMessage:@"Do you want to restart a new one?"];
     }
 
     
@@ -223,16 +231,9 @@
      */
 
     //1-prompt the user
-
-    UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"Re-Deal"
-                                                    message:@"Are you sure to restart the game?"
-                                                   delegate:self
-                                          cancelButtonTitle:@"No"
-                                          otherButtonTitles:@"Yes", nil];
-
-    [prompt show];
-
     
+    [self displayAnAlertYesNoWithTitle:@"Re-Deal" andMessage:@"Are you sure to restart the game?"];
+
 }
 
 
