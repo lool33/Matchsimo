@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7715DFB216B9FB32008E1DC8 /* cardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7715DFB116B9FB32008E1DC8 /* cardMatchingGame.m */; };
 		775A75BA16BD2346007D5745 /* cardMatchingGame3Cards.m in Sources */ = {isa = PBXBuildFile; fileRef = 775A75B916BD2346007D5745 /* cardMatchingGame3Cards.m */; };
+		77947AE516C2BB5A00BDF817 /* joystick.png in Resources */ = {isa = PBXBuildFile; fileRef = 77947AE416C2BB5A00BDF817 /* joystick.png */; };
+		77947AE716C2BB8400BDF817 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 77947AE616C2BB8400BDF817 /* star.png */; };
 		7799B0CA16B6032000093567 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7799B0C916B6032000093567 /* UIKit.framework */; };
 		7799B0CC16B6032000093567 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7799B0CB16B6032000093567 /* Foundation.framework */; };
 		7799B0CE16B6032000093567 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7799B0CD16B6032000093567 /* CoreGraphics.framework */; };
@@ -91,6 +93,8 @@
 		7715DFB116B9FB32008E1DC8 /* cardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = cardMatchingGame.m; path = Model/cardMatchingGame.m; sourceTree = "<group>"; };
 		775A75B816BD2346007D5745 /* cardMatchingGame3Cards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cardMatchingGame3Cards.h; path = Model/cardMatchingGame3Cards.h; sourceTree = "<group>"; };
 		775A75B916BD2346007D5745 /* cardMatchingGame3Cards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = cardMatchingGame3Cards.m; path = Model/cardMatchingGame3Cards.m; sourceTree = "<group>"; };
+		77947AE416C2BB5A00BDF817 /* joystick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joystick.png; sourceTree = "<group>"; };
+		77947AE616C2BB8400BDF817 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		7799B0C516B6032000093567 /* Matchismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matchismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7799B0C916B6032000093567 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7799B0CB16B6032000093567 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -269,6 +273,8 @@
 		7799B0F316B60E0200093567 /* 75 */ = {
 			isa = PBXGroup;
 			children = (
+				77947AE616C2BB8400BDF817 /* star.png */,
+				77947AE416C2BB5A00BDF817 /* joystick.png */,
 				7799B0F416B60E0200093567 /* back-blue-75-1.png */,
 				7799B0F516B60E0200093567 /* back-blue-75-2.png */,
 				7799B0F616B60E0200093567 /* back-blue-75-3.png */,
@@ -450,6 +456,8 @@
 				7799B16916B60E0200093567 /* spades-j-75.png in Resources */,
 				7799B16A16B60E0200093567 /* spades-k-75.png in Resources */,
 				7799B16B16B60E0200093567 /* spades-q-75.png in Resources */,
+				77947AE516C2BB5A00BDF817 /* joystick.png in Resources */,
+				77947AE716C2BB8400BDF817 /* star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
