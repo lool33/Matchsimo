@@ -357,7 +357,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="kXG-Bd-ZRd">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="343"/>
+                                <rect key="frame" x="0.0" y="43" width="320" height="300"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.1454976818" green="0.40758529970000001" blue="0.20476400829999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -408,6 +408,14 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="A1j-bs-X1O">
+                                <rect key="frame" x="23" y="6" width="275" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Match Card Scores"/>
+                                    <segment title="Match Set Scores"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.1454976818" green="0.40758529970000001" blue="0.20476400829999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -427,6 +435,10 @@
         <class className="cardGameViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/cardGameViewController.h"/>
             <relationships>
+                <relationship kind="action" name="DealNewGame:" candidateClass="UIButton"/>
+                <relationship kind="action" name="HistoryChanged:" candidateClass="UISlider"/>
+                <relationship kind="action" name="cardTouch:" candidateClass="UIButton"/>
+                <relationship kind="action" name="gameModeChanged:" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="HistorySlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="historicLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="numberOfTap" candidateClass="UILabel"/>
