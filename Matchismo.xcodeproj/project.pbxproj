@@ -11,6 +11,8 @@
 		775A75BA16BD2346007D5745 /* cardMatchingGame3Cards.m in Sources */ = {isa = PBXBuildFile; fileRef = 775A75B916BD2346007D5745 /* cardMatchingGame3Cards.m */; };
 		77947AE516C2BB5A00BDF817 /* joystick.png in Resources */ = {isa = PBXBuildFile; fileRef = 77947AE416C2BB5A00BDF817 /* joystick.png */; };
 		77947AE716C2BB8400BDF817 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 77947AE616C2BB8400BDF817 /* star.png */; };
+		77947AE916C5C5D400BDF817 /* 200-card-clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = 77947AE816C5C5D400BDF817 /* 200-card-clubs.png */; };
+		77947AEB16C5C6F300BDF817 /* 97-puzzle.png in Resources */ = {isa = PBXBuildFile; fileRef = 77947AEA16C5C6F300BDF817 /* 97-puzzle.png */; };
 		7799B0CA16B6032000093567 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7799B0C916B6032000093567 /* UIKit.framework */; };
 		7799B0CC16B6032000093567 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7799B0CB16B6032000093567 /* Foundation.framework */; };
 		7799B0CE16B6032000093567 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7799B0CD16B6032000093567 /* CoreGraphics.framework */; };
@@ -95,6 +97,8 @@
 		775A75B916BD2346007D5745 /* cardMatchingGame3Cards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = cardMatchingGame3Cards.m; path = Model/cardMatchingGame3Cards.m; sourceTree = "<group>"; };
 		77947AE416C2BB5A00BDF817 /* joystick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joystick.png; sourceTree = "<group>"; };
 		77947AE616C2BB8400BDF817 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		77947AE816C5C5D400BDF817 /* 200-card-clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "200-card-clubs.png"; sourceTree = "<group>"; };
+		77947AEA16C5C6F300BDF817 /* 97-puzzle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "97-puzzle.png"; sourceTree = "<group>"; };
 		7799B0C516B6032000093567 /* Matchismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matchismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7799B0C916B6032000093567 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7799B0CB16B6032000093567 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -229,7 +233,7 @@
 				7799B0EF16B6045D00093567 /* Model */,
 				7799B0E416B6032000093567 /* cardGameViewController.h */,
 				7799B0E516B6032000093567 /* cardGameViewController.m */,
-				7799B0F316B60E0200093567 /* 75 */,
+				7799B0F316B60E0200093567 /* Icons */,
 				7799B0D016B6032000093567 /* Supporting Files */,
 			);
 			path = Matchismo;
@@ -270,9 +274,11 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		7799B0F316B60E0200093567 /* 75 */ = {
+		7799B0F316B60E0200093567 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				77947AE816C5C5D400BDF817 /* 200-card-clubs.png */,
+				77947AEA16C5C6F300BDF817 /* 97-puzzle.png */,
 				77947AE616C2BB8400BDF817 /* star.png */,
 				77947AE416C2BB5A00BDF817 /* joystick.png */,
 				7799B0F416B60E0200093567 /* back-blue-75-1.png */,
@@ -336,6 +342,7 @@
 				7799B12E16B60E0200093567 /* spades-k-75.png */,
 				7799B12F16B60E0200093567 /* spades-q-75.png */,
 			);
+			name = Icons;
 			path = 75;
 			sourceTree = "<group>";
 		};
@@ -458,6 +465,8 @@
 				7799B16B16B60E0200093567 /* spades-q-75.png in Resources */,
 				77947AE516C2BB5A00BDF817 /* joystick.png in Resources */,
 				77947AE716C2BB8400BDF817 /* star.png in Resources */,
+				77947AE916C5C5D400BDF817 /* 200-card-clubs.png in Resources */,
+				77947AEB16C5C6F300BDF817 /* 97-puzzle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
