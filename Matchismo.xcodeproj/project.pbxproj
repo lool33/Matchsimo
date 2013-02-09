@@ -13,6 +13,7 @@
 		77947AE716C2BB8400BDF817 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 77947AE616C2BB8400BDF817 /* star.png */; };
 		77947AE916C5C5D400BDF817 /* 200-card-clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = 77947AE816C5C5D400BDF817 /* 200-card-clubs.png */; };
 		77947AEB16C5C6F300BDF817 /* 97-puzzle.png in Resources */ = {isa = PBXBuildFile; fileRef = 77947AEA16C5C6F300BDF817 /* 97-puzzle.png */; };
+		77947AEF16C5CAC000BDF817 /* SetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 77947AEE16C5CAC000BDF817 /* SetCard.m */; };
 		7799B0CA16B6032000093567 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7799B0C916B6032000093567 /* UIKit.framework */; };
 		7799B0CC16B6032000093567 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7799B0CB16B6032000093567 /* Foundation.framework */; };
 		7799B0CE16B6032000093567 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7799B0CD16B6032000093567 /* CoreGraphics.framework */; };
@@ -99,6 +100,8 @@
 		77947AE616C2BB8400BDF817 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		77947AE816C5C5D400BDF817 /* 200-card-clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "200-card-clubs.png"; sourceTree = "<group>"; };
 		77947AEA16C5C6F300BDF817 /* 97-puzzle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "97-puzzle.png"; sourceTree = "<group>"; };
+		77947AED16C5CAC000BDF817 /* SetCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetCard.h; path = Model/SetCard.h; sourceTree = "<group>"; };
+		77947AEE16C5CAC000BDF817 /* SetCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetCard.m; path = Model/SetCard.m; sourceTree = "<group>"; };
 		7799B0C516B6032000093567 /* Matchismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matchismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7799B0C916B6032000093567 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7799B0CB16B6032000093567 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -199,6 +202,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77947AEC16C5C74A00BDF817 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7799B0E416B6032000093567 /* cardGameViewController.h */,
+				7799B0E516B6032000093567 /* cardGameViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		7799B0BA16B6032000093567 = {
 			isa = PBXGroup;
 			children = (
@@ -231,8 +243,7 @@
 			children = (
 				7799B0E116B6032000093567 /* MainStoryboard.storyboard */,
 				7799B0EF16B6045D00093567 /* Model */,
-				7799B0E416B6032000093567 /* cardGameViewController.h */,
-				7799B0E516B6032000093567 /* cardGameViewController.m */,
+				77947AEC16C5C74A00BDF817 /* Controllers */,
 				7799B0F316B60E0200093567 /* Icons */,
 				7799B0D016B6032000093567 /* Supporting Files */,
 			);
@@ -270,6 +281,8 @@
 				7715DFB116B9FB32008E1DC8 /* cardMatchingGame.m */,
 				775A75B816BD2346007D5745 /* cardMatchingGame3Cards.h */,
 				775A75B916BD2346007D5745 /* cardMatchingGame3Cards.m */,
+				77947AED16C5CAC000BDF817 /* SetCard.h */,
+				77947AEE16C5CAC000BDF817 /* SetCard.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -486,6 +499,7 @@
 				7715DFB216B9FB32008E1DC8 /* cardMatchingGame.m in Sources */,
 				77D74B7716BAA37B00A2174C /* Card.m in Sources */,
 				775A75BA16BD2346007D5745 /* cardMatchingGame3Cards.m in Sources */,
+				77947AEF16C5CAC000BDF817 /* SetCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
