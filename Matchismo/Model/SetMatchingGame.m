@@ -26,6 +26,8 @@
             
             //We create a string to store the result of the flip and then save it into the flipHistory
             NSString *flipResult = nil;
+            //Trying something about flipResult
+            NSDictionary *lastFlipped = [[NSDictionary alloc]init];
             
             //we instanciate a Mutable array to store the other card returned
             NSMutableArray *otherCardFacedUp = [[NSMutableArray alloc]init];
@@ -84,6 +86,8 @@
                         
                         //save the flip history
                         flipResult = [NSString stringWithFormat:@"You matched %@ / %@ / %@! You win %d points",card.contents,firstCard.contents,secondCard.contents,matchScore * MATCH_BONUS_3_CARDS];
+                        lastFlipped = @{FIRST_CARD : firstCard.contents, SECOND_CARD : secondCard.contents, THIRD_CARD : card.contents, MATCH_SCORE : @(matchScore)};
+                        
                         
                     }else{
                         //here the 3 cards doesn't match
@@ -104,6 +108,7 @@
             if(!flipResult){
                 
                 flipResult = [NSString stringWithFormat:@"You flipped up the %@ it cost you %d points",card.contents,FLIP_COST];
+                lastFlipped = @{FIRST_CARD : card.contents, MATCH_SCORE : @(FLIP_COST)};
             }
             
             self.score -= FLIP_COST;

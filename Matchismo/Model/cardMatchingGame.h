@@ -13,6 +13,10 @@
 #define MATCH_BONUS 4
 #define MATCH_BONUS_3_CARDS 5
 #define MISMATCH_PENALTY 2
+#define FIRST_CARD @"First Card"
+#define SECOND_CARD @"Second Card"
+#define THIRD_CARD @"Third Card"
+#define MATCH_SCORE @"MatchScore"
 
 
 @interface cardMatchingGame : NSObject
@@ -22,7 +26,8 @@
 @property(nonatomic,strong) NSMutableArray *cards; //of cards
 @property(nonatomic) int score; //already declared as readOnly in header. So make it read/write in our implementation
 //stack to keep the history of flip
-@property(nonatomic,strong)NSMutableArray *flipHistory; //declared privatly as read/write
+@property(nonatomic,strong)NSMutableArray *flipHistory; //first version used for the flip history storing strings
+@property(nonatomic,strong)NSMutableArray *flipHistoryDict; //Second version storing dictionnary
 
 //Store the number of time some card flipped
 @property(nonatomic) int HistoricIndex;
