@@ -24,12 +24,14 @@
     return _cards;
 }
 
+
 //lazy instantiation of the historic propoerty
 -(NSMutableArray *)flipHistory
 {
     if(!_flipHistory) _flipHistory = [[NSMutableArray alloc]init];
     return _flipHistory;
 }
+
 
 
 //implementation of the designated initializer
@@ -78,8 +80,8 @@
         if(!card.isFaceUp)
         {
             
-            //We create a string to store the result of the flip and then save it into the flipHistory
-            NSString *flipResult = nil;
+            //We create a Dictionnary to store the result of the flip and then save it into the flipHistory
+            NSDictionary *flipResult = nil;
             
             
             //we check if turning this card faced up create a match
@@ -100,15 +102,22 @@
                         self.score += matchScore * MATCH_BONUS;
                         
                         //create the flip result string for a match (ex:@"you matched card & card for X points!")
-                        flipResult = [NSString stringWithFormat:@"You matched %@ AND %@! You win %d points",card.contents,otherCard.contents,matchScore * MATCH_BONUS];
+                        flipResult = @{FIRST_CARD : otherCard.contents, SECOND_CARD : card.contents, MATCH_SCORE : @(matchScore * MATCH_BONUS)};
                         
+                        /*
+                        flipResult = [NSString stringWithFormat:@"You matched %@ AND %@! You win %d points",card.contents,otherCard.contents,matchScore * MATCH_BONUS];
+                        */
                         
                     }else{
                         otherCard.faceUp = NO;
                         self.score -= MISMATCH_PENALTY;
                         
+                        
                         //create the flip result string for a match (ex:@"card and card don't match! X point penalty")
+                        /*
                         flipResult = [NSString stringWithFormat:@"%@ AND %@ don't match! %d points penalty!",card.contents,otherCard.contents,MISMATCH_PENALTY];
+                        */
+                        flipResult = @{FIRST_CARD : otherCard.contents, SECOND_CARD : card.contents, MATCH_SCORE : @(MISMATCH_PENALTY)};
                         
                     }
                     
@@ -122,7 +131,10 @@
             //so the string should look like this :@"Flipped up card!"
             if(!flipResult){
                 
+                flipResult = @{FIRST_CARD : card.contents, MATCH_SCORE : @(FLIP_COST)};
+                /*
                 flipResult = [NSString stringWithFormat:@"You flipped up the %@ it cost you %d points",card.contents,FLIP_COST];
+                 */
             }
             
             self.score -= FLIP_COST;

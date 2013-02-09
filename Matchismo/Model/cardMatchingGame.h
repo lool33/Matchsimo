@@ -27,7 +27,6 @@
 @property(nonatomic) int score; //already declared as readOnly in header. So make it read/write in our implementation
 //stack to keep the history of flip
 @property(nonatomic,strong)NSMutableArray *flipHistory; //first version used for the flip history storing strings
-@property(nonatomic,strong)NSMutableArray *flipHistoryDict; //Second version storing dictionnary
 
 //Store the number of time some card flipped
 @property(nonatomic) int HistoricIndex;
