@@ -158,10 +158,19 @@
     NSString *firstCard = flipDictionnary[FIRST_CARD];
     NSString *secondCard = flipDictionnary[SECOND_CARD];
     NSNumber *score = flipDictionnary[MATCH_SCORE];
+    BOOL mismatch = NO;
+    if([flipDictionnary[MISMATCH] isEqualToString:@"YES"] ){
+        mismatch = YES;
+    }
+     
     
     //here this is a single flip
-    if(firstCard && !secondCard){
+    if(firstCard && !secondCard && !mismatch){
         return [NSString stringWithFormat:@"You flipped up the %@ it cost you %d points",firstCard,[score intValue]];
+        
+    }else if (firstCard && secondCard && mismatch){
+        return [NSString stringWithFormat:@"%@ AND %@ don't match! it cost you %d points",firstCard,secondCard,[score intValue]];
+        
     }else if(firstCard && secondCard){
         //here this is a two card match
         return [NSString stringWithFormat:@"You matched %@ AND %@! You win %d points",firstCard,secondCard,[score intValue]];

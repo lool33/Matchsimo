@@ -17,6 +17,7 @@
 #define SECOND_CARD @"Second Card"
 #define THIRD_CARD @"Third Card"
 #define MATCH_SCORE @"MatchScore"
+#define MISMATCH @"Mismatch"
 
 
 @interface cardMatchingGame : NSObject
