@@ -10,6 +10,46 @@
 
 @implementation SetCard
 
+//override match method form the super
+-(int)match:(NSArray *)otherCards
+{
+ 
+    int matchScore = 1; //default score if there is a match (all matches reward the same score)
+    
+    if([otherCards count] !=2) return 0; //if we don't have 2 other cards to match with me return 0
+    
+    //We create soem mutable set for each property of the SetCard
+    NSMutableSet *colorSet = [[NSMutableSet alloc]init];
+    NSMutableSet *shadingSet = [[NSMutableSet alloc]init];
+    NSMutableSet *symbolSet = [[NSMutableSet alloc]init];
+    NSMutableSet *numberSet = [[NSMutableSet alloc]init];
+
+    //We store the property of the 3 cards into the corresponding mutable set
+    NSArray *theCards = @[self,otherCards[0],otherCards[1]];
+    
+    for (SetCard *card in theCards) {
+        
+        [colorSet addObject:card.color];
+        [shadingSet addObject:card.shading];
+        [symbolSet addObject:card.symbol];
+        [numberSet addObject:@(card.number)];
+    }
+    
+
+    //We check if we have mutliple entry in each set, if yes it means there is no 3 match
+    //A mutable set cannot have two identical objects
+    
+    if([colorSet count] == 2) matchScore = 0;
+    if([shadingSet count] == 2) matchScore = 0;
+    if([symbolSet count] == 2) matchScore = 0;
+    if([numberSet count] == 2) matchScore = 0;
+    //but here it means that we should have every properties equal to have a score
+    
+    return matchScore;
+}
+
+
+
 //public API implementation
 +(NSArray *)validColors
 {
@@ -98,6 +138,8 @@
 }
 
 //override of content method from superClass
+//should probably be optimized inculding the use of NSAttributedString
+//in order to return the contents as the symbol in the same way it's displayed
 -(NSString *)contents
 {
     NSArray *numberStrings = [SetCard numbersStrings];
