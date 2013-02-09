@@ -15,8 +15,8 @@
 @property(nonatomic)float shading; //it's alpha beetwen 0 and 1
 @property(nonatomic)int number;
 
-+(NSString *)validColors;
-+(NSString *)validSymbols;
-
++(NSArray *)validColors;
++(NSArray *)validSymbols;
++(int)maxNumber;
 
 @end

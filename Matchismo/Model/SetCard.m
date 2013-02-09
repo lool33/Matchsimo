@@ -10,4 +10,30 @@
 
 @implementation SetCard
 
+
++(NSArray *)validColors
+{
+    return @[@"green",@"red",@"blue"];
+    
+}
+
++(NSArray *)validSymbols
+{
+    return @[@"■",@"●",@"▲"];
+}
+
++(NSArray *)numbersStrings
+{
+ 
+    return @[@"1",@"2",@"3"];
+}
+
++(int)maxNumber
+{
+    return [SetCard numbersStrings].count;
+    
+}
+
+
+
 @end
