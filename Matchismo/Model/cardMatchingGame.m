@@ -8,7 +8,6 @@
 
 #import "cardMatchingGame.h"
 #import "playingCard.h"
-#import "cardMatchingGame3Cards.h"
 
 @interface cardMatchingGame ()
 
@@ -186,6 +185,14 @@
             for (Card *card2 in self.cards) {
                 if(!card2.isUnPlayable && !(card1 == card2)) //continue only if card2 is also playable and if it's not equal to card1
                 {
+                    /*
+                     
+                     ****************************************************************
+                     This code was used to define in which kind of game we are
+                     Should be used or not for the new SetGame
+                     ****************************************************************
+
+                     
                     if([self isKindOfClass:[cardMatchingGame3Cards class]]){
                         //here we are in a 3 cards matching game
                         
@@ -197,14 +204,14 @@
                                 
                             }
                         }
-    
-                    }else{
+                     */
+                    
                         //Here we are in a 2 cards matching game
                         //Now check if the two cards are matchable
                         //and adjust gameOver accordingly
                         if([card1 match:@[card2]]) gameOver = NO;
 
-                    }
+                    
                     
                 }
             }

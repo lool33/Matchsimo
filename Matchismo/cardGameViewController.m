@@ -10,7 +10,7 @@
 #import "playingDeck.h"
 #import "Card.h"
 #import "cardMatchingGame.h"
-#import "cardMatchingGame3Cards.h"
+
 
 @interface cardGameViewController ()<UIAlertViewDelegate>
 
@@ -28,8 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 //property to the historicLabel in the View
 @property (weak, nonatomic) IBOutlet UILabel *historicLabel;
-//Outlet to the segmented control(Needed to disabme the segmented control during a game, and initialize the game at startUp)
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
 //Outlet to the slider (Needed to set it's max and min proerty...
 @property (weak, nonatomic) IBOutlet UISlider *HistorySlider;
 @end
@@ -43,18 +42,10 @@
     
     if(!_game){
         
-        if(self.segmentedControl.selectedSegmentIndex == 0){
-            
+                    
             _game = [[cardMatchingGame alloc]initWithCardCount:[self.cardButtons count]
                                                      usingDeck:[[playingDeck alloc]init]];
-            
-        }else{
-            
-            _game = [[cardMatchingGame3Cards alloc]initWithCardCount:[self.cardButtons count]
-                                                           usingDeck:[[playingDeck alloc]init]];
-            
-        }
-        
+              
     }
     
        return _game;
@@ -176,8 +167,7 @@
     // and then we update the UI to let the model tell us what to display
     [self updateUI];
     
-    //disable the segmented control for the first card flip
-    if(self.segmentedControl.enabled = YES) self.segmentedControl.enabled = NO;
+    
     //Enable the history slider after the first flip
     self.HistorySlider.enabled = YES;
     self.HistorySlider.maximumValue ++;
@@ -268,8 +258,6 @@
         //5-update the cards
         [self updateUI];
         
-        //6-enable the segmented control
-        self.segmentedControl.enabled = YES;
         
     }
     
