@@ -44,10 +44,10 @@
 -(Card *)cardAtIndex:(NSUInteger)index;
 
 //the flips are added on the stack, so index 0 is first flip description
--(NSString *)descriptionOfFlipAtIndex:(NSUInteger)index;
+-(NSDictionary *)descriptionOfFlipAtIndex:(NSUInteger)index;
 
 //return the description of the mast flip
--(NSString *)descriptionOfLastFlip;
+-(NSDictionary *)descriptionOfLastFlip;
 
 -(BOOL)gameIsOver;
 

@@ -72,6 +72,8 @@
     //starting by grabbing the card we are interested in
     Card *card = [self cardAtIndex:index];
     
+    //We create a Dictionnary to store the result of the flip and then save it into the flipHistory
+    NSDictionary *flipResult = nil;
     
     
     //check if it's playable
@@ -80,10 +82,7 @@
         if(!card.isFaceUp)
         {
             
-            //We create a Dictionnary to store the result of the flip and then save it into the flipHistory
-            NSDictionary *flipResult = nil;
-            
-            
+                        
             //we check if turning this card faced up create a match
             //So we check if there is other cards already returned
             for (Card *otherCard in self.cards) {
@@ -117,7 +116,7 @@
                         /*
                         flipResult = [NSString stringWithFormat:@"%@ AND %@ don't match! %d points penalty!",card.contents,otherCard.contents,MISMATCH_PENALTY];
                         */
-                        flipResult = @{FIRST_CARD : otherCard.contents, SECOND_CARD : card.contents, MATCH_SCORE : @(MISMATCH_PENALTY)};
+                        flipResult = @{FIRST_CARD : card.contents, MATCH_SCORE : @(MISMATCH_PENALTY)};
                         
                     }
                     
@@ -163,7 +162,7 @@
 
 
 //the flips are added on the stack, so index 0 is first flip
--(NSString *)descriptionOfFlipAtIndex:(NSUInteger)index
+-(NSDictionary *)descriptionOfFlipAtIndex:(NSUInteger)index
 {
     
     if(self.flipHistory.count){
@@ -176,7 +175,7 @@
 }
 
 
--(NSString *)descriptionOfLastFlip
+-(NSDictionary *)descriptionOfLastFlip
 {
     if(self.flipHistory.count)
     {

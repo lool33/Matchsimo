@@ -140,7 +140,7 @@
         
     }
     
-    self.historicLabel.text = [self.game descriptionOfLastFlip];
+    self.historicLabel.text = [self flipTranslationFromDictionnary:[self.game descriptionOfLastFlip]];
     
     //check if the game is over
     if([self.game gameIsOver])
@@ -150,6 +150,24 @@
     }
 
     
+}
+
+-(NSString *)flipTranslationFromDictionnary:(NSDictionary *)flipDictionnary
+{
+    
+    NSString *firstCard = flipDictionnary[FIRST_CARD];
+    NSString *secondCard = flipDictionnary[SECOND_CARD];
+    NSNumber *score = flipDictionnary[MATCH_SCORE];
+    
+    //here this is a single flip
+    if(firstCard && !secondCard){
+        return [NSString stringWithFormat:@"You flipped up the %@ it cost you %d points",firstCard,[score intValue]];
+    }else if(firstCard && secondCard){
+        //here this is a two card match
+        return [NSString stringWithFormat:@"You matched %@ AND %@! You win %d points",firstCard,secondCard,[score intValue]];
+    }else{
+        return nil;
+    }
 }
 
 #pragma mark - Target/Action
@@ -192,9 +210,9 @@
     //NSLog(@"the value of the slider is: %f and the int is: %d",sliderValue,intSliderValue);
     
     
-    self.historicLabel.text = [self.game descriptionOfFlipAtIndex:intSliderValue];
+    self.historicLabel.text = [self flipTranslationFromDictionnary:[self.game descriptionOfFlipAtIndex:intSliderValue]];
     if(!self.historicLabel.text){
-        self.historicLabel.text = [self.game descriptionOfLastFlip];
+        self.historicLabel.text = [self flipTranslationFromDictionnary:[self.game descriptionOfLastFlip]];
         
     }
     
