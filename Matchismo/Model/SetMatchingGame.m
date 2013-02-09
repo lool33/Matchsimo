@@ -17,6 +17,10 @@
     //1-retrieve the card passed from the index
     Card *card = [self cardAtIndex:index];
     
+    //We create a dicitionnary to store the result of the flip and then save it into the flipHistory
+    NSDictionary *flipResult = nil;
+    
+    
     //2-check if it's playable
     if(!card.isUnPlayable){
         
@@ -24,10 +28,6 @@
         //3-check if it's not already facedUp
         if(!card.isFaceUp){
             
-            //We create a string to store the result of the flip and then save it into the flipHistory
-            NSString *flipResult = nil;
-            //Trying something about flipResult
-            NSDictionary *lastFlipped = [[NSDictionary alloc]init];
             
             //we instanciate a Mutable array to store the other card returned
             NSMutableArray *otherCardFacedUp = [[NSMutableArray alloc]init];
@@ -84,9 +84,9 @@
                         
                         self.score += matchScore * MATCH_BONUS_3_CARDS;
                         
-                        //save the flip history
-                        flipResult = [NSString stringWithFormat:@"You matched %@ / %@ / %@! You win %d points",card.contents,firstCard.contents,secondCard.contents,matchScore * MATCH_BONUS_3_CARDS];
-                        lastFlipped = @{FIRST_CARD : firstCard.contents, SECOND_CARD : secondCard.contents, THIRD_CARD : card.contents, MATCH_SCORE : @(matchScore)};
+                       
+                        //create the flip result string for a match (ex:@"you matched card & card for X points!")
+                        flipResult = @{FIRST_CARD : card.contents, SECOND_CARD : secondCard.contents,THIRD_CARD :firstCard.contents  MATCH_SCORE : @(matchScore * MATCH_BONUS_3_CARDS),MISMATCH : @"NO"};
                         
                         
                     }else{
@@ -96,6 +96,12 @@
                         
                         firstCard.faceUp = NO;
                         secondCard.faceUp = NO;
+                        
+                        self.score -= MISMATCH_PENALTY;
+                        
+                        flipResult = @{FIRST_CARD : card.contents,SECOND_CARD : secondCard.contents,THIRD_CARD : firstCard.contents
+                        MATCH_SCORE : @(MISMATCH_PENALTY),MISMATCH : @"YES"};
+                        
                         
                     }
                     
@@ -107,8 +113,8 @@
             //We didn't find any match or mismatch so it's the first flip
             if(!flipResult){
                 
-                flipResult = [NSString stringWithFormat:@"You flipped up the %@ it cost you %d points",card.contents,FLIP_COST];
-                lastFlipped = @{FIRST_CARD : card.contents, MATCH_SCORE : @(FLIP_COST)};
+                flipResult = @{FIRST_CARD : card.contents, MATCH_SCORE : @(FLIP_COST),MISMATCH : @"NO"};
+             
             }
             
             self.score -= FLIP_COST;
