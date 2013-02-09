@@ -98,7 +98,7 @@
                         otherCard.unPlayable = YES;
                       
                         //as Paul says, we scale the matchScore to a modifiable value
-                        self.score += matchScore * MATCH_BONUS;
+                        self.score += matchScore * MATCH_BONUS + 1;
                         
                         //create the flip result string for a match (ex:@"you matched card & card for X points!")
                         flipResult = @{FIRST_CARD : otherCard.contents, SECOND_CARD : card.contents, MATCH_SCORE : @(matchScore * MATCH_BONUS),MISMATCH : @"NO"};
@@ -109,7 +109,7 @@
                         
                     }else{
                         otherCard.faceUp = NO;
-                        self.score -= MISMATCH_PENALTY;
+                        self.score -= MISMATCH_PENALTY -1;
                         
                         
                         //create the flip result string for a match (ex:@"card and card don't match! X point penalty")
