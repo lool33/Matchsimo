@@ -30,12 +30,12 @@
 +(NSArray *)numbersStrings
 {
  
-    return @[@"1",@"2",@"3"];
+    return @[@"?",@"1",@"2",@"3"];
 }
 
 +(int)maxNumber
 {
-    return [SetCard numbersStrings].count;
+    return [SetCard numbersStrings].count -1;
     
 }
 
