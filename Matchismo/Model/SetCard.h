@@ -12,10 +12,11 @@
 
 @property(nonatomic,strong)NSString *color;
 @property(nonatomic,strong)NSString *symbol;
-@property(nonatomic)float shading; //it's alpha beetwen 0 and 1
+@property(nonatomic,strong)NSString *shading;
 @property(nonatomic)int number;
 
 +(NSArray *)validColors;
++(NSArray *)validShadings;
 +(NSArray *)validSymbols;
 +(int)maxNumber;
 

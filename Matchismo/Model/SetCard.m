@@ -22,6 +22,11 @@
     return @[@"■",@"●",@"▲"];
 }
 
++(NSArray *)validShadings
+{
+    return @[@"solid",@"striped",@"open"];
+}
+
 +(NSArray *)numbersStrings
 {
  
@@ -38,6 +43,7 @@
 
 @synthesize color = _color;
 @synthesize symbol = _symbol;
+@synthesize shading = _shading;
 
 -(void)setColor:(NSString *)color
 {
@@ -69,18 +75,34 @@
     return _symbol ? _symbol : @"?";
 }
 
--(void)setShading:(float)shading
+-(NSString *)shading
 {
-    if(shading != _shading){
-        if(shading <= 1.0 && shading >= 0) _shading = shading;
-        if(shading < 0) _shading = 0;
-        if(shading > 1.0) _shading = 1;
+    return _shading ? _shading : @"?";
+}
+
+-(void)setShading:(NSString *)shading
+{
+    if(shading != _shading)
+    {
+        
+        if([[SetCard validShadings] containsObject:shading]){
+            _shading = shading;
+        }
     }
 }
+
 
 -(void)setNumber:(int)number
 {
     if(number <= [SetCard maxNumber]) _number = number;
+}
+
+//override of content method from superClass
+-(NSString *)contents
+{
+    NSArray *numberStrings = [SetCard numbersStrings];
+    return [NSString stringWithFormat:@"%@-%@-%@-%@",self.color,self.symbol,self.shading,numberStrings[self.number]];
+    
 }
 
 
