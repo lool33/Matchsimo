@@ -20,4 +20,7 @@
 +(NSArray *)validSymbols;
 +(int)maxNumber;
 
+-(NSAttributedString *)contentsAttributed;
+
+
 @end

@@ -147,5 +147,10 @@
     
 }
 
+-(NSAttributedString *)contentsAttributed
+{
+    
+    
+}
 
 @end
