@@ -28,6 +28,7 @@
                         setCard.shading = shape;
                         setCard.symbol = symbol;
                         setCard.number = number;
+                        [self addCard:setCard onTop:YES];
                         
                     }
                 }

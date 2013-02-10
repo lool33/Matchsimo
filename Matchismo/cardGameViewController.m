@@ -42,16 +42,12 @@
     
     if(!_game){
         
-                    
             _game = [[cardMatchingGame alloc]initWithCardCount:[self.cardButtons count]
                                                      usingDeck:[[playingDeck alloc]init]];
-              
     }
     
        return _game;
 }
-
-
 
 
 -(void)setCardButtons:(NSArray *)cardButtons
@@ -159,10 +155,7 @@
     NSString *secondCard = flipDictionnary[SECOND_CARD];
     NSNumber *score = flipDictionnary[MATCH_SCORE];
     BOOL mismatch = NO;
-    if([flipDictionnary[MISMATCH] isEqualToString:@"YES"] ){
-        mismatch = YES;
-    }
-     
+    if([flipDictionnary[MISMATCH] isEqualToString:@"YES"]) mismatch = YES;
     
     //here this is a single flip
     if(firstCard && !secondCard && !mismatch){
@@ -203,12 +196,7 @@
     
 }
 
-- (IBAction)gameModeChanged:(UISegmentedControl *)sender {
-    
-    self.game = nil;
-    
-    
-}
+
 
 - (IBAction)HistoryChanged:(UISlider *)sender {
     

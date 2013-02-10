@@ -768,9 +768,6 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="DealNewGame:" destination="2" eventType="touchUpInside" id="cto-0g-PCd"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1454976818" green="0.40758529970000001" blue="0.20476400829999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -872,12 +869,10 @@
                 <relationship kind="action" name="DealNewGame:" candidateClass="UIButton"/>
                 <relationship kind="action" name="HistoryChanged:" candidateClass="UISlider"/>
                 <relationship kind="action" name="cardTouch:" candidateClass="UIButton"/>
-                <relationship kind="action" name="gameModeChanged:" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="HistorySlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="historicLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="numberOfTap" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="segmentedControl" candidateClass="UISegmentedControl"/>
                 <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
             </relationships>
         </class>

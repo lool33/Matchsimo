@@ -86,8 +86,7 @@
                         
                        
                         //create the flip result string for a match (ex:@"you matched card & card for X points!")
-                        flipResult = @{FIRST_CARD : card.contents, SECOND_CARD : secondCard.contents,THIRD_CARD :firstCard.contents  MATCH_SCORE : @(matchScore * MATCH_BONUS_3_CARDS),MISMATCH : @"NO"};
-                        
+                        flipResult = @{FIRST_CARD : card.contents,SECOND_CARD : secondCard.contents,THIRD_CARD : firstCard.contents,MATCH_SCORE : @(matchScore * MATCH_BONUS_3_CARDS),MISMATCH : @"NO"};
                         
                     }else{
                         //here the 3 cards doesn't match
@@ -99,8 +98,7 @@
                         
                         self.score -= MISMATCH_PENALTY;
                         
-                        flipResult = @{FIRST_CARD : card.contents,SECOND_CARD : secondCard.contents,THIRD_CARD : firstCard.contents
-                        MATCH_SCORE : @(MISMATCH_PENALTY),MISMATCH : @"YES"};
+                        flipResult = @{FIRST_CARD : card.contents, SECOND_CARD : secondCard.contents, THIRD_CARD : firstCard.contents, MATCH_SCORE : @(MISMATCH_PENALTY), MISMATCH : @"YES"};
                         
                         
                     }
