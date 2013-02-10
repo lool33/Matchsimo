@@ -14,23 +14,27 @@
 
 @interface cardGameViewController ()<UIAlertViewDelegate>
 
-
-
 //outlet for the label on the UI
 @property (weak, nonatomic) IBOutlet UILabel *numberOfTap;
+
 //property to keep trace of the number of tap
 @property(nonatomic) int TapCount;
+
 //Collection of outlet to the cards in the UI
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+
 //instanciate the cardMatchingGame class
 @property(strong,nonatomic)cardMatchingGame *game;
+
 //Outlet to the ScoreLabale in the view
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+
 //property to the historicLabel in the View
 @property (weak, nonatomic) IBOutlet UILabel *historicLabel;
 
 //Outlet to the slider (Needed to set it's max and min proerty...
 @property (weak, nonatomic) IBOutlet UISlider *HistorySlider;
+
 @end
 
 @implementation cardGameViewController
@@ -98,6 +102,26 @@
 -(void)updateUI
 {
         
+    //first we update the cards
+    [self updateCards];
+    
+    //We update the scoreLabel with the score coming from the model
+    self.scoreLabel.text = [NSString stringWithFormat:@"Score : %d",self.game.score];
+    
+    self.historicLabel.text = [self flipTranslationFromDictionnary:[self.game descriptionOfLastFlip]];
+    
+    //check if the game is over
+    if([self.game gameIsOver])
+    {
+        //game is over
+        [self displayAnAlertYesNoWithTitle:@"You Finished the Game!!!" andMessage:@"Do you want to restart a new one?"];
+    }
+    
+}
+
+//Method overrided in the SetGameController
+-(void)updateCards
+{
     //iterate over the each cards in the UI and ask the model for what to display
     for (UIButton *cardButton in self.cardButtons) {
         //We get the card from the model
@@ -109,9 +133,6 @@
         
         [cardButton setImage:[UIImage imageNamed:card.imageName]
                     forState:UIControlStateSelected|UIControlStateDisabled];
-        
-        
-        
         
         //Here we animate the selected button only for the flip
         if(cardButton.selected != card.isFaceUp){
@@ -131,22 +152,10 @@
         //We set the alpha to transparent if the card is unplayable and to opaque if playable
         cardButton.alpha = card.isUnPlayable ? 0.3 : 1;
         
-        //We update the scoreLabel with the score coming from the model
-        self.scoreLabel.text = [NSString stringWithFormat:@"Score : %d",self.game.score];
-        
     }
-    
-    self.historicLabel.text = [self flipTranslationFromDictionnary:[self.game descriptionOfLastFlip]];
-    
-    //check if the game is over
-    if([self.game gameIsOver])
-    {
-        //game is over
-        [self displayAnAlertYesNoWithTitle:@"You Finished the Game!!!" andMessage:@"Do you want to restart a new one?"];
-    }
-
     
 }
+
 
 -(NSString *)flipTranslationFromDictionnary:(NSDictionary *)flipDictionnary
 {

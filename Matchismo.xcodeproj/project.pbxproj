@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7715DFB216B9FB32008E1DC8 /* cardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7715DFB116B9FB32008E1DC8 /* cardMatchingGame.m */; };
+		778E509116C854FB0094BFEF /* SetGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 778E509016C854FB0094BFEF /* SetGameViewController.m */; };
 		77947AE516C2BB5A00BDF817 /* joystick.png in Resources */ = {isa = PBXBuildFile; fileRef = 77947AE416C2BB5A00BDF817 /* joystick.png */; };
 		77947AE716C2BB8400BDF817 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 77947AE616C2BB8400BDF817 /* star.png */; };
 		77947AE916C5C5D400BDF817 /* 200-card-clubs.png in Resources */ = {isa = PBXBuildFile; fileRef = 77947AE816C5C5D400BDF817 /* 200-card-clubs.png */; };
@@ -95,6 +96,8 @@
 /* Begin PBXFileReference section */
 		7715DFB016B9FB32008E1DC8 /* cardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cardMatchingGame.h; path = Model/cardMatchingGame.h; sourceTree = "<group>"; };
 		7715DFB116B9FB32008E1DC8 /* cardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = cardMatchingGame.m; path = Model/cardMatchingGame.m; sourceTree = "<group>"; };
+		778E508F16C854FB0094BFEF /* SetGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetGameViewController.h; sourceTree = "<group>"; };
+		778E509016C854FB0094BFEF /* SetGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetGameViewController.m; sourceTree = "<group>"; };
 		77947AE416C2BB5A00BDF817 /* joystick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joystick.png; sourceTree = "<group>"; };
 		77947AE616C2BB8400BDF817 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		77947AE816C5C5D400BDF817 /* 200-card-clubs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "200-card-clubs.png"; sourceTree = "<group>"; };
@@ -210,6 +213,8 @@
 			children = (
 				7799B0E416B6032000093567 /* cardGameViewController.h */,
 				7799B0E516B6032000093567 /* cardGameViewController.m */,
+				778E508F16C854FB0094BFEF /* SetGameViewController.h */,
+				778E509016C854FB0094BFEF /* SetGameViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 				77947AEF16C5CAC000BDF817 /* SetCard.m in Sources */,
 				77947AF216C5DDAB00BDF817 /* SetDeck.m in Sources */,
 				77947AF716C5E67700BDF817 /* SetMatchingGame.m in Sources */,
+				778E509116C854FB0094BFEF /* SetGameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

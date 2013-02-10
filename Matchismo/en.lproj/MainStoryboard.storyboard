@@ -337,10 +337,10 @@
             </objects>
             <point key="canvasLocation" x="-1705" y="-227"/>
         </scene>
-        <!--View Controller - Set Game-->
+        <!--Set Game View Controller - Set Game-->
         <scene sceneID="W6F-Nq-xOA">
             <objects>
-                <viewController id="LqR-98-6c9" sceneMemberID="viewController">
+                <viewController id="LqR-98-6c9" customClass="SetGameViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T36-zw-Ide">
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -350,23 +350,37 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score : " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hlj-h7-aIF">
-                                        <rect key="frame" x="7" y="19" width="153" height="20"/>
+                                        <rect key="frame" x="7" y="47" width="153" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Touch:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="11u-Lo-gb9">
-                                        <rect key="frame" x="184" y="20" width="116" height="18"/>
+                                        <rect key="frame" x="184" y="48" width="116" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mSi-Za-4qu">
-                                        <rect key="frame" x="7" y="53" width="306" height="19"/>
+                                        <rect key="frame" x="7" y="68" width="306" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="rNw-ex-MkN">
+                                        <rect key="frame" x="26" y="25" width="268" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="HistoryChanged:" destination="2" eventType="valueChanged" id="iGj-3v-9v3"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flip History - Slide left to rewind" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PxI-he-tlT">
+                                        <rect key="frame" x="28" y="7" width="264" height="14"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -768,11 +782,20 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="DealNewGame:" destination="LqR-98-6c9" eventType="touchUpInside" id="1Xv-Hd-dUr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1454976818" green="0.40758529970000001" blue="0.20476400829999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Set Game" image="97-puzzle.png" id="tsv-Vw-Ogy"/>
+                    <connections>
+                        <outlet property="HistorySlider" destination="rNw-ex-MkN" id="bUG-TU-me9"/>
+                        <outlet property="historicLabel" destination="mSi-Za-4qu" id="JBX-wf-aHP"/>
+                        <outlet property="numberOfTap" destination="11u-Lo-gb9" id="3x4-2r-w7D"/>
+                        <outlet property="scoreLabel" destination="hlj-h7-aIF" id="BbJ-G5-1ta"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n6p-4w-1ML" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -863,6 +886,9 @@
         <image name="star.png" width="32" height="32"/>
     </resources>
     <classes>
+        <class className="SetGameViewController" superclassName="cardGameViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SetGameViewController.h"/>
+        </class>
         <class className="cardGameViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/cardGameViewController.h"/>
             <relationships>
