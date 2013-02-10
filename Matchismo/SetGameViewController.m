@@ -7,28 +7,51 @@
 //
 
 #import "SetGameViewController.h"
+#import "SetMatchingGame.h"
+#import "SetDeck.h"
 
 @interface SetGameViewController ()
+
+@property (nonatomic,strong)SetMatchingGame *game;
+
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 
 @end
 
 @implementation SetGameViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//lazy instantiation of the game
+-(SetMatchingGame *)game
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    
+    if(!_game){
+        
+        _game = [[SetMatchingGame alloc]initWithCardCount:[self.cardButtons count]
+                                                 usingDeck:[[SetDeck alloc]init]];
     }
-    return self;
+    
+    return _game;
 }
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	// Do any additional setup after loading the view.    
+}
+
+
+-(void)updateCards
+{
     
     
+}
+
+-(NSString *)flipTranslationFromDictionnary:(NSDictionary *)flipDictionnary
+{
+    
+    
+    return nil;
 }
 
 

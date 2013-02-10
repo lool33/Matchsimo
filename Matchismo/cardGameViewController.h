@@ -10,6 +10,12 @@
 
 @interface cardGameViewController : UIViewController
 
+//it's just public to override
+//should be a bad thing :-(
+-(NSString *)flipTranslationFromDictionnary:(NSDictionary *)flipDictionnary;
+-(void)updateCards;
+
+
 
 
 

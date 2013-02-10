@@ -795,6 +795,30 @@
                         <outlet property="historicLabel" destination="mSi-Za-4qu" id="JBX-wf-aHP"/>
                         <outlet property="numberOfTap" destination="11u-Lo-gb9" id="3x4-2r-w7D"/>
                         <outlet property="scoreLabel" destination="hlj-h7-aIF" id="BbJ-G5-1ta"/>
+                        <outletCollection property="cardButtons" destination="v3k-ym-gSx" id="HXw-YJ-Ufk"/>
+                        <outletCollection property="cardButtons" destination="bjQ-An-dhI" id="11j-JQ-Auy"/>
+                        <outletCollection property="cardButtons" destination="HHK-L4-JwR" id="zCx-53-lwz"/>
+                        <outletCollection property="cardButtons" destination="Nc2-dL-zOl" id="VTh-9K-OPn"/>
+                        <outletCollection property="cardButtons" destination="w7W-xC-R8f" id="H0A-Zg-kkb"/>
+                        <outletCollection property="cardButtons" destination="2vE-qo-ntc" id="ZbS-tL-q0z"/>
+                        <outletCollection property="cardButtons" destination="hgZ-LI-BbA" id="Wer-am-Suv"/>
+                        <outletCollection property="cardButtons" destination="SFZ-Jo-1kq" id="FLh-e7-pqU"/>
+                        <outletCollection property="cardButtons" destination="DNj-6G-n8X" id="XqX-AX-bXa"/>
+                        <outletCollection property="cardButtons" destination="0JM-q9-pDx" id="vnk-xm-6VO"/>
+                        <outletCollection property="cardButtons" destination="UNr-bZ-1Du" id="VY7-Mb-i8N"/>
+                        <outletCollection property="cardButtons" destination="GOl-w3-ADQ" id="ZP7-i3-K0a"/>
+                        <outletCollection property="cardButtons" destination="ECd-wt-eDz" id="Jmd-TR-GNY"/>
+                        <outletCollection property="cardButtons" destination="6jF-fC-EcO" id="igV-Xb-5ea"/>
+                        <outletCollection property="cardButtons" destination="w4t-El-Ckj" id="lIx-0b-Xof"/>
+                        <outletCollection property="cardButtons" destination="d4J-fd-4hZ" id="W9r-IT-hAb"/>
+                        <outletCollection property="cardButtons" destination="nkC-Rr-7uf" id="USz-4t-sKK"/>
+                        <outletCollection property="cardButtons" destination="7Pe-is-de4" id="EhR-1l-D27"/>
+                        <outletCollection property="cardButtons" destination="0rJ-46-f96" id="yhb-37-cTM"/>
+                        <outletCollection property="cardButtons" destination="Mui-Il-SH9" id="JM0-do-EPL"/>
+                        <outletCollection property="cardButtons" destination="Y7j-fT-xEx" id="Nvs-V8-GPp"/>
+                        <outletCollection property="cardButtons" destination="M2A-mB-FkF" id="GS5-Xa-QTW"/>
+                        <outletCollection property="cardButtons" destination="ddk-O3-MsP" id="XDQ-GH-fAC"/>
+                        <outletCollection property="cardButtons" destination="dUf-yC-iSu" id="qNA-1b-sgb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n6p-4w-1ML" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -888,6 +912,9 @@
     <classes>
         <class className="SetGameViewController" superclassName="cardGameViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SetGameViewController.h"/>
+            <relationships>
+                <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
+            </relationships>
         </class>
         <class className="cardGameViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/cardGameViewController.h"/>
