@@ -110,13 +110,15 @@
     
     self.historicLabel.text = [self flipTranslationFromDictionnary:[self.game descriptionOfLastFlip]];
     
+    
+    /*to uncomment for improve the game over functionnality for the setgame
     //check if the game is over
     if([self.game gameIsOver])
     {
         //game is over
         [self displayAnAlertYesNoWithTitle:@"You Finished the Game!!!" andMessage:@"Do you want to restart a new one?"];
     }
-    
+    */
 }
 
 //Method overrided in the SetGameController

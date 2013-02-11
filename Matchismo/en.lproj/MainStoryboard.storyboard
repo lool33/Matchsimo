@@ -402,6 +402,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="w2b-72-nSq"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="bjQ-An-dhI">
                                 <rect key="frame" x="89" y="49" width="67" height="37"/>
@@ -418,6 +421,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="JfJ-Nl-RAV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="HHK-L4-JwR">
                                 <rect key="frame" x="164" y="49" width="67" height="37"/>
@@ -434,6 +440,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="0pB-cl-kjj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="Nc2-dL-zOl">
                                 <rect key="frame" x="239" y="49" width="67" height="37"/>
@@ -450,6 +459,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="RHF-Mn-rdg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="w7W-xC-R8f">
                                 <rect key="frame" x="14" y="94" width="67" height="37"/>
@@ -466,6 +478,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="IhV-Di-pOl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="2vE-qo-ntc">
                                 <rect key="frame" x="89" y="94" width="67" height="37"/>
@@ -482,6 +497,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="4e9-Hz-Iw0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="hgZ-LI-BbA">
                                 <rect key="frame" x="164" y="94" width="67" height="37"/>
@@ -498,6 +516,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="0UK-Jw-GpE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="SFZ-Jo-1kq">
                                 <rect key="frame" x="239" y="94" width="67" height="37"/>
@@ -514,6 +535,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="WyT-6E-RFJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="DNj-6G-n8X">
                                 <rect key="frame" x="14" y="139" width="67" height="37"/>
@@ -530,6 +554,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="JEv-0e-1eA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="0JM-q9-pDx">
                                 <rect key="frame" x="89" y="139" width="67" height="37"/>
@@ -546,6 +573,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="gSb-LU-Cda"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="UNr-bZ-1Du">
                                 <rect key="frame" x="164" y="139" width="67" height="37"/>
@@ -562,6 +592,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="l6g-B5-71K"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="GOl-w3-ADQ">
                                 <rect key="frame" x="239" y="139" width="67" height="37"/>
@@ -578,6 +611,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="jNp-fx-Lok"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="ECd-wt-eDz">
                                 <rect key="frame" x="14" y="184" width="67" height="37"/>
@@ -594,6 +630,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="Hdl-6l-Zld"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="6jF-fC-EcO">
                                 <rect key="frame" x="89" y="184" width="67" height="37"/>
@@ -610,6 +649,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="lQH-6c-XC8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="w4t-El-Ckj">
                                 <rect key="frame" x="164" y="184" width="67" height="37"/>
@@ -626,6 +668,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="Owx-rF-CrU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="d4J-fd-4hZ">
                                 <rect key="frame" x="239" y="184" width="67" height="37"/>
@@ -642,6 +687,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="sFK-B8-xCE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="nkC-Rr-7uf">
                                 <rect key="frame" x="14" y="229" width="67" height="37"/>
@@ -658,6 +706,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="5iS-jj-9ae"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="7Pe-is-de4">
                                 <rect key="frame" x="89" y="229" width="67" height="37"/>
@@ -674,6 +725,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="zmU-ek-nsF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="0rJ-46-f96">
                                 <rect key="frame" x="164" y="229" width="67" height="37"/>
@@ -690,6 +744,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="8xK-d8-h3v"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="Mui-Il-SH9">
                                 <rect key="frame" x="239" y="229" width="67" height="37"/>
@@ -706,6 +763,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="I2W-WZ-PRx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="Y7j-fT-xEx">
                                 <rect key="frame" x="14" y="274" width="67" height="37"/>
@@ -722,6 +782,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="4pY-Ai-m8k"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="M2A-mB-FkF">
                                 <rect key="frame" x="89" y="274" width="67" height="37"/>
@@ -738,6 +801,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="n5G-oZ-tIT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="ddk-O3-MsP">
                                 <rect key="frame" x="164" y="274" width="67" height="37"/>
@@ -754,6 +820,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="mLc-wf-R7x"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="dUf-yC-iSu">
                                 <rect key="frame" x="239" y="274" width="67" height="37"/>
@@ -770,6 +839,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="cardTouch:" destination="LqR-98-6c9" eventType="touchUpInside" id="P3t-C4-ncS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VkF-cg-Eht">
                                 <rect key="frame" x="20" y="9" width="68" height="33"/>

@@ -150,18 +150,16 @@
 
 -(NSAttributedString *)contentsAttributed
 {
-    if(!_contentsAttributed)
-    {
-        
+            
         NSDictionary *attributes = @{   NSStrokeColorAttributeName : [self myColor],
                                         NSStrokeWidthAttributeName : @-5,
                                         NSForegroundColorAttributeName : [self shadeColors]};
         
-        _contentsAttributed = [[NSAttributedString alloc]initWithString:[self mySymbols] attributes:attributes];
+        NSAttributedString *contentsAttributed = [[NSAttributedString alloc]initWithString:[self mySymbols] attributes:attributes];
         
-        }
+        
     
-    return _contentsAttributed;
+    return contentsAttributed;
 }
     
     
