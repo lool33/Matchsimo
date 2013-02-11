@@ -147,9 +147,66 @@
     
 }
 
+
 -(NSAttributedString *)contentsAttributed
 {
+    if(!_contentsAttributed)
+    {
+        
+        NSDictionary *attributes = @{   NSStrokeColorAttributeName : [self myColor],
+                                        NSStrokeWidthAttributeName : @-5,
+                                        NSForegroundColorAttributeName : [self shadeColors]};
+        
+        _contentsAttributed = [[NSAttributedString alloc]initWithString:[self mySymbols] attributes:attributes];
+        
+        }
     
+    return _contentsAttributed;
+}
+    
+    
+-(UIColor *)myColor
+{
+    NSDictionary *colors = @{@"green" : [UIColor greenColor],@"red" : [UIColor redColor],@"blue" : [UIColor blueColor]};
+ 
+    
+    if([[SetCard validColors] containsObject:self.color]) return colors[self.color];
+    
+    return [UIColor blackColor];
+    
+}
+    
+    
+-(UIColor *)shadeColors
+{
+    
+    NSDictionary *colorsForShade = @{   @"green":[UIColor colorWithRed:0 green:1 blue:0 alpha:0.4],
+                                        @"red":[UIColor colorWithRed:1 green:0 blue:0 alpha:0.4],
+                                        @"blue":[UIColor colorWithRed:0 green:0 blue:1 alpha:0.4] };
+    
+
+
+    if([self.shading isEqualToString:@"solid"]){
+        return [self myColor];
+        
+    }else if ([self.shading isEqualToString:@"striped"]){
+        return colorsForShade[self.color];
+        
+    }else if ([self.shading isEqualToString:@"open"]){
+        return [UIColor whiteColor];
+    }
+
+    return nil;
+}
+    
+
+-(NSString *)mySymbols
+{
+    NSString *me = @"";
+    for (int i = 0; i < self.number; i++) {
+        me = [me stringByAppendingString:self.symbol];
+    }
+    return me;
     
 }
 

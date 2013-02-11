@@ -15,12 +15,13 @@
 @property(nonatomic,strong)NSString *shading;
 @property(nonatomic)int number;
 
+@property(nonatomic,strong)NSAttributedString *contentsAttributed;
+
 +(NSArray *)validColors;
 +(NSArray *)validShadings;
 +(NSArray *)validSymbols;
 +(int)maxNumber;
 
--(NSAttributedString *)contentsAttributed;
 
 
 @end
