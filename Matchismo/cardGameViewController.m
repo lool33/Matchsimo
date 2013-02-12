@@ -222,9 +222,9 @@
     //NSLog(@"the value of the slider is: %f and the int is: %d",sliderValue,intSliderValue);
     
     
-    self.historicLabel.text = [self flipTranslationFromDictionnary:[self.game descriptionOfFlipAtIndex:intSliderValue]];
-    if(!self.historicLabel.text){
-        self.historicLabel.text = [self flipTranslationFromDictionnary:[self.game descriptionOfLastFlip]];
+    self.historicLabel.attributedText = [self flipTranslationFromDictionnary:[self.game descriptionOfFlipAtIndex:intSliderValue]];
+    if(!self.historicLabel.attributedText){
+        self.historicLabel.attributedText = [self flipTranslationFromDictionnary:[self.game descriptionOfLastFlip]];
         
     }
     

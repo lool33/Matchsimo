@@ -103,6 +103,9 @@
             //We have a single flip
                 card.faceUp = !card.isFaceUp;
         }
+        
+       
+        
         self.HistoricIndex ++;
         
     }

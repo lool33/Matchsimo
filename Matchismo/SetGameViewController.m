@@ -97,28 +97,45 @@
     BOOL mismatch = NO;
     if([flipDictionnary[MISMATCH] isEqualToString:@"YES"]) mismatch = YES;
     
-    NSAttributedString *firstCardAttString = firstCard.contentsAttributed;
-    NSAttributedString *secondCardAttString = secondCard.contentsAttributed;
-    NSAttributedString *thirdCardAttString = thirdCard.contentsAttributed;
+    //generic strings
+    NSAttributedString *cost = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@" ! it cost you %d points!",[score intValue]]];
+    NSAttributedString *slash = [[NSAttributedString alloc]initWithString:@" / "];
+    NSAttributedString *dontMatch = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@" don't match! it cost you %d points",[score intValue]]];
+    NSAttributedString *match = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@" is a SET! You Win %d points",[score intValue]]];
     
-    NSAttributedString *response = nil;
     
     //here this is a single flip
     if(firstCard && !secondCard && !mismatch){
-        //response =  [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"You flipped up the %@ it cost you %d points",firstCardAttString,[score intValue]]];
         
+        NSMutableAttributedString *response = [[NSMutableAttributedString alloc]initWithString:@"You flipped up "];//You flipped up
+        [response appendAttributedString:firstCard.contentsAttributed];//You flipped up card!
+        [response appendAttributedString:cost];//You flipped up card! it cost you x points!
+        return response;
+
         
-        return firstCardAttString;
-        
-        //here is a set mismatch
+    //here is a set mismatch
     }else if (firstCard && secondCard && mismatch){
-        response = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ / %@ And %@ don't match! it cost you %d points",firstCardAttString,secondCardAttString,thirdCardAttString, [score intValue]]];
-        return firstCardAttString;
+        
+        NSMutableAttributedString *response = [[NSMutableAttributedString alloc]initWithAttributedString:firstCard.contentsAttributed];//card1
+        [response appendAttributedString:slash];//card1 /
+        [response appendAttributedString:secondCard.contentsAttributed];//card1 / card2
+        [response appendAttributedString:slash];//card1 / card2 /
+        [response appendAttributedString:thirdCard.contentsAttributed];//card1 / card2 / card3
+        [response appendAttributedString:dontMatch];//card1 / card2 / card3 don't match! it cost you %d points
+        return response;
+        
         
         //here is a set match
     }else if(firstCard && secondCard){
-        response = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ %@ %@ is a SET! You win %d points",firstCardAttString,secondCardAttString,thirdCardAttString,[score intValue]]];
-        return firstCardAttString;
+        
+        NSMutableAttributedString *response = [[NSMutableAttributedString alloc]initWithAttributedString:firstCard.contentsAttributed];//card1
+        [response appendAttributedString:slash];
+        [response appendAttributedString:secondCard.contentsAttributed];//card1 / card2
+        [response appendAttributedString:slash];//card1 / card2 /
+        [response appendAttributedString:thirdCard.contentsAttributed];//card1 / card2 / card3
+        [response appendAttributedString:match];
+        
+        return response;
         
     }else{
         return nil;
