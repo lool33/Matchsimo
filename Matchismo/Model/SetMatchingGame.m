@@ -20,14 +20,11 @@
     //We create a dicitionnary to store the result of the flip and then save it into the flipHistory
     NSDictionary *flipResult = nil;
     
-    
     //2-check if it's playable
     if(!card.isUnPlayable){
         
-        
         //3-check if it's not already facedUp
         if(!card.isFaceUp){
-            
             
             //we instanciate a Mutable array to store the other card returned
             NSMutableArray *otherCardFacedUp = [[NSMutableArray alloc]init];
@@ -72,10 +69,10 @@
                         Card *firstCard = otherCardFacedUp[0];
                         Card *secondCard = otherCardFacedUp[1];
                         
-                        //return back the 3 cards
+                        //return back the 2 cards
                         firstCard.faceUp = NO;
                         secondCard.faceUp = NO;
-                        card.faceUp = NO;
+                        
                         
                         //debit the score
                         self.score -= MISMATCH_PENALTY;
@@ -101,8 +98,11 @@
             
         }
         
-        //now we flip the card
-        card.faceUp = !card.isFaceUp;
+        //Now we flip the card only if there is a single flip
+        if([flipResult[MISMATCH] isEqualToString:@"NO"]){
+            //We have a single flip
+                card.faceUp = !card.isFaceUp;
+        }
         self.HistoricIndex ++;
         
     }
