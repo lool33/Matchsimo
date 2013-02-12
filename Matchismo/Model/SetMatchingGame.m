@@ -42,35 +42,14 @@
                 }
             }
             
-            //check for the number of cards returned and perform specific computing for each case
+            //check for the number of cards returned and check for a mach is there is 3 cards returned
             
-            if(otherCardFacedUp.count == 0){
-                //no other card returned so single flip so do nothing
-            }else {
-                if(otherCardFacedUp.count == 1){
-                    
-                    //we have 2 cards returned, check if they match
-                    //If not flip the first card back
-                    //if yes, let theim returned to let a chance the user to have a 3 cards match
-                    
-                    int matchScore = [card match:otherCardFacedUp];
-                    if(matchScore){
-                        //the first two card match so let theim returned
-                    }else{
-                        //the first two card doen't match so return the first one
-                        
-                        Card *firstCard = otherCardFacedUp[0];
-                        firstCard.faceUp = NO;
-                        
-                    }
-                    
-                    
-                }else if (otherCardFacedUp.count == 2){
-                    
+            if(otherCardFacedUp.count == 2){
+            
                     //We have 3 cards returned
                     //check for a mactch
                     //if there is a match so the 3 cards match so make the 3 unplayable and credit the score
-                    //if there is no match return back the two first cards and keep the 3rd card returned
+                    //if there is no match return back the 3 cards
                     
                     int matchScore = [card match:otherCardFacedUp];
                     if(matchScore){
@@ -82,9 +61,9 @@
                         firstCard.unPlayable = YES;
                         secondCard.unPlayable = YES;
                         
+                        //credit the score
                         self.score += matchScore * MATCH_BONUS_3_CARDS;
                         
-                       
                         //create the flip result string for a match (ex:@"you matched card & card for X points!")
                         flipResult = @{FIRST_CARD : card.contents,SECOND_CARD : secondCard.contents,THIRD_CARD : firstCard.contents,MATCH_SCORE : @(matchScore * MATCH_BONUS_3_CARDS),MISMATCH : @"NO"};
                         
@@ -93,24 +72,25 @@
                         Card *firstCard = otherCardFacedUp[0];
                         Card *secondCard = otherCardFacedUp[1];
                         
+                        //return back the 3 cards
                         firstCard.faceUp = NO;
                         secondCard.faceUp = NO;
+                        card.faceUp = NO;
                         
+                        //debit the score
                         self.score -= MISMATCH_PENALTY;
                         
+                        //create the flip result string
                         flipResult = @{FIRST_CARD : card.contents, SECOND_CARD : secondCard.contents, THIRD_CARD : firstCard.contents, MATCH_SCORE : @(MISMATCH_PENALTY), MISMATCH : @"YES"};
                         
-                        
                     }
-                    
-                }
                 
             }
             
             
-            //We didn't find any match or mismatch so it's the first flip
+            //We didn't find any match or mismatch so it's a unique flip
             if(!flipResult){
-                
+                //store the card flipped info
                 flipResult = @{FIRST_CARD : card.contents, MATCH_SCORE : @(FLIP_COST),MISMATCH : @"NO"};
              
             }
@@ -127,8 +107,6 @@
         
     }
   
-    
-    
     
 }
 

@@ -191,7 +191,7 @@
         return colorsForShade[self.color];
         
     }else if ([self.shading isEqualToString:@"open"]){
-        return [UIColor whiteColor];
+        return [UIColor colorWithWhite:1 alpha:0];
     }
 
     return nil;
