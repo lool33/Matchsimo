@@ -108,7 +108,8 @@
     //We update the scoreLabel with the score coming from the model
     self.scoreLabel.text = [NSString stringWithFormat:@"Score : %d",self.game.score];
     
-    self.historicLabel.text = [self flipTranslationFromDictionnary:[self.game descriptionOfLastFlip]];
+    self.historicLabel.attributedText = [self flipTranslationFromDictionnary:[self.game descriptionOfLastFlip]];
+    
     
     
     /*to uncomment for improve the game over functionnality for the setgame
@@ -159,7 +160,7 @@
 }
 
 
--(NSString *)flipTranslationFromDictionnary:(NSDictionary *)flipDictionnary
+-(NSAttributedString *)flipTranslationFromDictionnary:(NSDictionary *)flipDictionnary
 {
     
     NSString *firstCard = flipDictionnary[FIRST_CARD];
@@ -170,14 +171,17 @@
     
     //here this is a single flip
     if(firstCard && !secondCard && !mismatch){
-        return [NSString stringWithFormat:@"You flipped up the %@ it cost you %d points",firstCard,[score intValue]];
+        NSString *singleFlip = [NSString stringWithFormat:@"You flipped up the %@ it cost you %d points",firstCard,[score intValue]];
+        return [[NSAttributedString alloc]initWithString:singleFlip];
         
     }else if (firstCard && secondCard && mismatch){
-        return [NSString stringWithFormat:@"%@ AND %@ don't match! it cost you %d points",firstCard,secondCard,[score intValue]];
+        NSString *mismatch =  [NSString stringWithFormat:@"%@ AND %@ don't match! it cost you %d points",firstCard,secondCard,[score intValue]];
+        return [[NSAttributedString alloc]initWithString:mismatch];
         
     }else if(firstCard && secondCard){
         //here this is a two card match
-        return [NSString stringWithFormat:@"You matched %@ AND %@! You win %d points",firstCard,secondCard,[score intValue]];
+        NSString *match = [NSString stringWithFormat:@"You matched %@ AND %@! You win %d points",firstCard,secondCard,[score intValue]];
+        return [[NSAttributedString alloc]initWithString:match];
     }else{
         return nil;
     }

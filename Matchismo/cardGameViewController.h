@@ -12,7 +12,7 @@
 
 //it's just public to override
 //should be a bad thing :-(
--(NSString *)flipTranslationFromDictionnary:(NSDictionary *)flipDictionnary;
+-(NSAttributedString *)flipTranslationFromDictionnary:(NSDictionary *)flipDictionnary;
 -(void)updateCards;
 
 

@@ -88,14 +88,43 @@
     
 }
 
-/*
-
--(NSString *)flipTranslationFromDictionnary:(NSDictionary *)flipDictionnary
+-(NSAttributedString *)flipTranslationFromDictionnary:(NSDictionary *)flipDictionnary
 {
+    Card *firstCard = flipDictionnary[FIRST_CARD];
+    Card *secondCard = flipDictionnary[SECOND_CARD];
+    Card *thirdCard = flipDictionnary[THIRD_CARD];
+    NSNumber *score = flipDictionnary[MATCH_SCORE];
+    BOOL mismatch = NO;
+    if([flipDictionnary[MISMATCH] isEqualToString:@"YES"]) mismatch = YES;
     
+    NSAttributedString *firstCardAttString = firstCard.contentsAttributed;
+    NSAttributedString *secondCardAttString = secondCard.contentsAttributed;
+    NSAttributedString *thirdCardAttString = thirdCard.contentsAttributed;
     
-    return nil;
+    NSAttributedString *response = nil;
+    
+    //here this is a single flip
+    if(firstCard && !secondCard && !mismatch){
+        //response =  [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"You flipped up the %@ it cost you %d points",firstCardAttString,[score intValue]]];
+        
+        
+        return firstCardAttString;
+        
+        //here is a set mismatch
+    }else if (firstCard && secondCard && mismatch){
+        response = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ / %@ And %@ don't match! it cost you %d points",firstCardAttString,secondCardAttString,thirdCardAttString, [score intValue]]];
+        return firstCardAttString;
+        
+        //here is a set match
+    }else if(firstCard && secondCard){
+        response = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ %@ %@ is a SET! You win %d points",firstCardAttString,secondCardAttString,thirdCardAttString,[score intValue]]];
+        return firstCardAttString;
+        
+    }else{
+        return nil;
+    }
+    
 }
-*/
+
 
 @end

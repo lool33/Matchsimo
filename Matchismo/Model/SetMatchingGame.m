@@ -62,7 +62,7 @@
                         self.score += matchScore * MATCH_BONUS_3_CARDS;
                         
                         //create the flip result string for a match (ex:@"you matched card & card for X points!")
-                        flipResult = @{FIRST_CARD : card.contents,SECOND_CARD : secondCard.contents,THIRD_CARD : firstCard.contents,MATCH_SCORE : @(matchScore * MATCH_BONUS_3_CARDS),MISMATCH : @"NO"};
+                        flipResult = @{FIRST_CARD : card,SECOND_CARD : secondCard,THIRD_CARD : firstCard,MATCH_SCORE : @(matchScore * MATCH_BONUS_3_CARDS),MISMATCH : @"NO"};
                         
                     }else{
                         //here the 3 cards doesn't match
@@ -78,7 +78,7 @@
                         self.score -= MISMATCH_PENALTY;
                         
                         //create the flip result string
-                        flipResult = @{FIRST_CARD : card.contents, SECOND_CARD : secondCard.contents, THIRD_CARD : firstCard.contents, MATCH_SCORE : @(MISMATCH_PENALTY), MISMATCH : @"YES"};
+                        flipResult = @{FIRST_CARD : card, SECOND_CARD : secondCard, THIRD_CARD : firstCard, MATCH_SCORE : @(MISMATCH_PENALTY), MISMATCH : @"YES"};
                         
                     }
                 
@@ -88,7 +88,7 @@
             //We didn't find any match or mismatch so it's a unique flip
             if(!flipResult){
                 //store the card flipped info
-                flipResult = @{FIRST_CARD : card.contents, MATCH_SCORE : @(FLIP_COST),MISMATCH : @"NO"};
+                flipResult = @{FIRST_CARD : card, MATCH_SCORE : @(FLIP_COST),MISMATCH : @"NO"};
              
             }
             
