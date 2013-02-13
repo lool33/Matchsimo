@@ -17,5 +17,6 @@
 
 @property(nonatomic) int score; //read/write because we could change the score at anytime
 
++(NSArray *)allGameResults; //of game results
 
 @end

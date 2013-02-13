@@ -74,4 +74,38 @@
     return @{START_KEY : self.startGame,END_KEY : self.endGame, SCORE_KEY : @(self.score)};
 }
 
++(NSArray *)allGameResults
+{
+    NSMutableArray *allGameResults = [[NSMutableArray alloc]init];
+    
+    for(id plist in [[[NSUserDefaults standardUserDefaults]objectForKey:ALL_RESULT_KEY] allValues])
+    {
+        GameResult *result = [[GameResult alloc]initFromPropertyList:plist];
+        [allGameResults addObject:result];
+        
+    }
+    
+    return allGameResults;
+    
+}
+
+//convenience initializer
+-(id)initFromPropertyList:(id)propertyList
+{
+    self = [self init];
+    if(self){
+        if([propertyList isKindOfClass:[NSDictionary class]])
+        {
+            NSDictionary *resultDictionnary = (NSDictionary *)propertyList;
+            _startGame = resultDictionnary[START_KEY];
+            _endGame = resultDictionnary[END_KEY];
+            _score = [resultDictionnary[SCORE_KEY] intValue];
+            if(!_startGame || !_endGame) self = nil;
+            
+            
+        }
+        
+    }
+    return self;
+}
 @end
