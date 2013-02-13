@@ -10,6 +10,7 @@
 #import "playingDeck.h"
 #import "Card.h"
 #import "cardMatchingGame.h"
+#import "GameResult.h"
 
 
 @interface cardGameViewController ()<UIAlertViewDelegate>
@@ -35,10 +36,20 @@
 //Outlet to the slider (Needed to set it's max and min proerty...
 @property (weak, nonatomic) IBOutlet UISlider *HistorySlider;
 
+//property to a gameResult object
+@property(nonatomic,strong) GameResult *gameResult;
+
 @end
 
 @implementation cardGameViewController
 
+//lazy instantiation of gameResult property
+-(GameResult *)gameResult
+{
+    if(!_gameResult) _gameResult = [[GameResult alloc]init];
+    return _gameResult;
+    
+}
 
 //lazy instantiation of the game
 -(cardMatchingGame *)game
@@ -209,6 +220,9 @@
     self.HistorySlider.value = self.HistorySlider.maximumValue;
     self.HistorySlider.alpha = 1;
     
+    //update the score result
+    self.gameResult.score = self.game.score;
+    
 }
 
 
@@ -284,6 +298,8 @@
         self.HistorySlider.value = self.HistorySlider.maximumValue;
         self.HistorySlider.enabled = NO;
 
+        //4.1_Reset the score class
+        self.gameResult = nil;
         
         //5-update the cards
         [self updateUI];
