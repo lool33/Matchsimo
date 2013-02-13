@@ -111,9 +111,9 @@
         [response appendAttributedString:firstCard.contentsAttributed];//You flipped up card!
         [response appendAttributedString:cost];//You flipped up card! it cost you x points!
         return response;
-
         
-    //here is a set mismatch
+        
+        //here is a set mismatch
     }else if (firstCard && secondCard && mismatch){
         
         NSMutableAttributedString *response = [[NSMutableAttributedString alloc]initWithAttributedString:firstCard.contentsAttributed];//card1
