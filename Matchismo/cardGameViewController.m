@@ -220,7 +220,7 @@
     self.HistorySlider.value = self.HistorySlider.maximumValue;
     self.HistorySlider.alpha = 1;
     
-    //update the score result
+    //save the score result
     self.gameResult.score = self.game.score;
     
 }

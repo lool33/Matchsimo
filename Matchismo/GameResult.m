@@ -8,6 +8,8 @@
 
 #import "GameResult.h"
 #define ALL_RESULT_KEY @"GameResult_ALL"
+#define CARD_RESULT_KEY @"CardResults"
+#define SET_RESULT_KEY @"SetResults"
 
 @interface GameResult ()
 

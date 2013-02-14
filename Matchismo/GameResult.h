@@ -19,4 +19,12 @@
 
 +(NSArray *)allGameResults; //of game results
 
++(NSArray *)allGameResultsSortedByScore;
+
++(NSArray *)allGameResultsSortedByDate;
+
++(NSArray *)allGameResultsSortedByDuration;
+
+
+
 @end
