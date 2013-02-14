@@ -220,9 +220,17 @@
     self.HistorySlider.value = self.HistorySlider.maximumValue;
     self.HistorySlider.alpha = 1;
     
+    //set the gameResult type property
+    if([self isMemberOfClass:[cardGameViewController class]])
+    {
+        self.gameResult.gameType = @"card";
+    }else{
+        self.gameResult.gameType = @"set";
+    }
+    
     //save the score result
     self.gameResult.score = self.game.score;
-    
+
 }
 
 
@@ -298,7 +306,7 @@
         self.HistorySlider.value = self.HistorySlider.maximumValue;
         self.HistorySlider.enabled = NO;
 
-        //4.1_Reset the score class
+        //4.1-Reset the score class
         self.gameResult = nil;
         
         //5-update the cards

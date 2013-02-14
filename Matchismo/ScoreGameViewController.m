@@ -24,7 +24,7 @@
 {
     if(!_scores) _scores = [[NSArray alloc]init];
     
-    //_scores = [GameResult allGameResults];
+    _scores = [GameResult allGameResults];
     
     return _scores;
     
@@ -34,6 +34,7 @@
 {
 
     self.scores = [GameResult allGameResults];
+    [self.tableView reloadData];
 
 }
 

@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Matchismo/ScoreGameViewController.m"
-         timestampString = "382467933.766002"
+         timestampString = "382542859.524156"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "42"
-         endingLineNumber = "42"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
