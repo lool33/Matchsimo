@@ -128,4 +128,48 @@
 }
 
 
+
+
+-(NSComparisonResult)compareScoreGameWithAnotherResult:(GameResult *)otherResult
+{
+    NSComparisonResult comparison;
+    
+    if(self.score < otherResult.score){
+        comparison = NSOrderedDescending;
+    }else if(self.score >otherResult.score){
+        comparison = NSOrderedAscending;
+    }else{
+        comparison = NSOrderedSame;
+    }
+    
+    return comparison;
+    
+}
+
+-(NSComparisonResult)compareStartGameWithAnotherResult:(GameResult *)otherResult
+{
+
+   return [self.startGame compare:otherResult.startGame];
+    
+
+}
+
+-(NSComparisonResult)compareDurationGameWithAnotherResult:(GameResult *)otherResult
+{
+    NSComparisonResult comparison;
+    
+    if(self.duration > otherResult.duration){
+        comparison = NSOrderedDescending;
+    }else if(self.duration < otherResult.duration){
+        comparison = NSOrderedAscending;
+    }else{
+        comparison = NSOrderedSame;
+    }
+    
+    return comparison;
+    
+    
+}
+
+
 @end

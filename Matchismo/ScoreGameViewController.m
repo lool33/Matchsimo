@@ -11,7 +11,7 @@
 
 @interface ScoreGameViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property(nonatomic,strong) NSArray *scores; //of score
+@property(nonatomic,strong) NSArray *scores; //of score kind of model for this controller
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *scoreTypes;
 
@@ -23,9 +23,7 @@
 -(NSArray *)scores
 {
     if(!_scores) _scores = [[NSArray alloc]init];
-    
-    _scores = [GameResult allGameResults];
-    
+        
     return _scores;
     
 }
@@ -33,7 +31,16 @@
 -(void)updateUI
 {
 
-    self.scores = [GameResult allGameResults];
+    if(self.scoreTypes.selectedSegmentIndex == 0){
+        //all games selected
+         self.scores = [GameResult allGameResults];
+        
+    }else if (self.scoreTypes.selectedSegmentIndex == 1){
+        //card game result only
+    }else{
+        //set game result only
+    }
+   
     [self.tableView reloadData];
 
 }
@@ -86,6 +93,7 @@ numberOfRowsInSection:(NSInteger)section
     
     
     /*
+     //display the duration game
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%0g seconds",round(gameResult.duration)];
     */
     return cell;
@@ -93,8 +101,33 @@ numberOfRowsInSection:(NSInteger)section
     
 }
 
+#pragma mark - Target/Action
 
+- (IBAction)sortByDate
+{
+   
+    self.scores = [self.scores sortedArrayUsingSelector:@selector(compareStartGameWithAnotherResult:)];
+    //self.scores = [[GameResult allGameResults] sortedArrayUsingSelector:@selector(compareStartGameWithAnotherResult:)];
+    [self.tableView reloadData];
+    
+    //sort scoresSortedByDate
+    //reset the self.scores array with scoresSortedByDate
+    //tableView reload data
+}
 
+- (IBAction)sortByScore
+{
+     self.scores = [self.scores sortedArrayUsingSelector:@selector(compareScoreGameWithAnotherResult:)];
+    [self.tableView reloadData];
+    
+}
+
+- (IBAction)sortByDuration
+{
+    self.scores = [self.scores sortedArrayUsingSelector:@selector(compareDurationGameWithAnotherResult:)];
+    [self.tableView reloadData];
+    
+}
 
 
 @end

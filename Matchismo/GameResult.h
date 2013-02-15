@@ -26,18 +26,13 @@
 
 
 
+-(NSComparisonResult)compareStartGameWithAnotherResult:(GameResult *)otherResult;
+-(NSComparisonResult)compareScoreGameWithAnotherResult:(GameResult *)otherResult;
+-(NSComparisonResult)compareDurationGameWithAnotherResult:(GameResult *)otherResult;
 
 
-/*
+
 +(NSArray *)allCardGameResults; //of card game results
 +(NSArray *)allSetGameResults; //of set game results
-
-+(NSArray *)allGameResultsSortedByScore;
-
-+(NSArray *)allGameResultsSortedByDate;
-
-+(NSArray *)allGameResultsSortedByDuration;
-
-*/
 
 @end

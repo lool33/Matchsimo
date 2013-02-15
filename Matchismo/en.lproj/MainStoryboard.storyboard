@@ -950,6 +950,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sortByDate" destination="LBq-iK-UVm" eventType="touchUpInside" id="1bO-kl-iPI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SHl-Bz-QtR">
                                 <rect key="frame" x="114" y="351" width="88" height="44"/>
@@ -962,6 +965,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sortByScore" destination="LBq-iK-UVm" eventType="touchUpInside" id="U6L-Pd-mEd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mIz-CS-YPF">
                                 <rect key="frame" x="210" y="351" width="90" height="44"/>
@@ -974,6 +980,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sortByDuration" destination="LBq-iK-UVm" eventType="touchUpInside" id="QU4-D6-m03"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="A1j-bs-X1O">
                                 <rect key="frame" x="23" y="6" width="275" height="30"/>
@@ -1004,31 +1013,6 @@
         <image name="back-red-75-1.png" width="75" height="107"/>
         <image name="star.png" width="32" height="32"/>
     </resources>
-    <classes>
-        <class className="ScoreGameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScoreGameViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="scoreTypes" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="SetGameViewController" superclassName="cardGameViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SetGameViewController.h"/>
-            <relationships>
-                <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="cardGameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/cardGameViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="HistorySlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="historicLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numberOfTap" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
-                <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
