@@ -86,17 +86,17 @@ numberOfRowsInSection:(NSInteger)section
     //display the score
     cell.textLabel.text = [NSString stringWithFormat:@"Score : %d",gameResult.score];
     
-    
+    /*
     //display the start date
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
     cell.detailTextLabel.text = [dateFormat stringFromDate:gameResult.startGame];
+    */
     
     
-    /*
      //display the duration game
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%0g seconds",round(gameResult.duration)];
-    */
+    
     return cell;
 
     

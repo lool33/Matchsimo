@@ -112,6 +112,36 @@
     
 }
 
+-(BOOL)gameIsOver
+{
+    BOOL gameOver = YES;
+    
+    for (Card *card1 in self.cards) { //iterate over all the cards of the deck
+        if(!card1.isUnPlayable) //continue only if the card is playable
+        {
+            for (Card *card2 in self.cards) {
+                if(!card2.isUnPlayable && !(card1 == card2)) //continue only if card2 is also playable and if it's not equal to card1
+                {
+                    
+                     for (Card *card3 in self.cards) {
+                         if(!card3.isUnPlayable && !(card3 == card2) && !(card3 == card1)) //the third card is playable and is not equal to the first two ones
+                         {
+                         
+                         if([card3 match:@[card1,card2]]) gameOver = NO;
+                         
+                         }
+                    }
+                
+                    
+                }
+            }
+            
+        }
+    }
+    
+    return gameOver;
+
+}
 
 
 @end
