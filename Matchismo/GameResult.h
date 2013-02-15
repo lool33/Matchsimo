@@ -22,6 +22,8 @@
 
 
 +(NSArray *)allGameResults;//of any kind game result
++(NSArray *)allGameResultsForKindOfGame:(NSString *)gameType; //of card game results
+
 +(void)resetAllScores;
 
 
@@ -32,7 +34,5 @@
 
 
 
-+(NSArray *)allCardGameResults; //of card game results
-+(NSArray *)allSetGameResults; //of set game results
 
 @end

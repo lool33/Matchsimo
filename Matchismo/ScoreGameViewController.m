@@ -36,9 +36,10 @@
          self.scores = [GameResult allGameResults];
         
     }else if (self.scoreTypes.selectedSegmentIndex == 1){
-        //card game result only
+        self.scores = [GameResult allGameResultsForKindOfGame:@"card"];
     }else{
         //set game result only
+        self.scores = [GameResult allGameResultsForKindOfGame:@"set"];
     }
    
     [self.tableView reloadData];
@@ -126,6 +127,37 @@ numberOfRowsInSection:(NSInteger)section
 {
     self.scores = [self.scores sortedArrayUsingSelector:@selector(compareDurationGameWithAnotherResult:)];
     [self.tableView reloadData];
+    
+}
+
+- (IBAction)changeScores:(UISegmentedControl *)sender
+{
+    [self updateUI];
+}
+- (IBAction)resetScores:(UIButton *)sender
+{
+    UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"Delete All Scores"
+                                                    message:@"Are you sure to delete all Scores?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"No"
+                                          otherButtonTitles:@"Yes", nil];
+    
+    [prompt show];
+
+    
+    
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0){
+        [alertView dismissWithClickedButtonIndex:0 animated:YES];
+        
+    }else{
+        [GameResult resetAllScores];
+        [self updateUI];
+        
+    }
     
 }
 

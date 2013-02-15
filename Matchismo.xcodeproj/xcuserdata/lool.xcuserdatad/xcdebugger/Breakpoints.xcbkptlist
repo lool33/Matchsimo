@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Matchismo/ScoreGameViewController.m"
-         timestampString = "382631597.339117"
+         timestampString = "382632282.149191"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "41"
-         endingLineNumber = "41"
+         startingLineNumber = "51"
+         endingLineNumber = "51"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Matchismo/ScoreGameViewController.m"
-         timestampString = "382631597.339117"
+         timestampString = "382632282.149191"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "101"
-         endingLineNumber = "101"
+         startingLineNumber = "111"
+         endingLineNumber = "111"
          landmarkName = "-sortByDate"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Matchismo/GameResult.m"
-         timestampString = "382630923.600553"
+         timestampString = "382632282.149191"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "177"
-         endingLineNumber = "177"
+         startingLineNumber = "168"
+         endingLineNumber = "168"
          landmarkName = "-compareStartGameWithAnotherResult:"
          landmarkType = "5">
       </FileBreakpoint>

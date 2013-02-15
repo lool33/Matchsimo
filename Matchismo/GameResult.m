@@ -97,6 +97,25 @@
     
 }
 
++(NSArray *)allGameResultsForKindOfGame:(NSString *)gameType;
+{
+    
+    NSMutableArray *gameResults = [[NSMutableArray alloc]init];
+    
+    for(id plist in [[[NSUserDefaults standardUserDefaults]objectForKey:ALL_RESULT_KEY] allValues]){
+        
+        GameResult *result = [[GameResult alloc]initFromPropertyList:plist];
+        if([result.gameType isEqualToString:gameType]){
+            [gameResults addObject:result];
+        }else if ([result.gameType isEqualToString:gameType]){
+            [gameResults addObject:result];
+        }
+    }
+    
+    return gameResults;
+}
+
+
 +(void)resetAllScores
 {
     //Reset the score by putting an empty dictionnary in the user defaults
